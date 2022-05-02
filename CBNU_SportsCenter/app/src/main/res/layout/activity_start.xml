@@ -10,37 +10,62 @@
         android:id="@+id/imageView2"
         android:layout_width="168dp"
         android:layout_height="234dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo2" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="241dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="52dp"
+        android:gravity="center"
         android:text="충북대학교 스포츠센터 모바일"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.582"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <Button
-        android:id="@+id/btn_start"
+
+    <ImageButton
+        android:id="@+id/ib_input"
+        android:layout_width="70dp"
+        android:layout_height="69dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:cropToPadding="false"
+        android:paddingLeft="5dp"
+        android:paddingBottom="5dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.401"
+        app:srcCompat="@drawable/loading" />
+
+    <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="시작하기"
-        android:background="@color/cbnu"
+        android:layout_marginBottom="4dp"
+        android:text="COPYRIGHT © CHUNGBUK NATIONAL UNIVERSITY SPORTSCENTER, ALL RIGHT RESERVED"
+        android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.336" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
