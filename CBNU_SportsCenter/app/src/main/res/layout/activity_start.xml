@@ -56,6 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
+        android:textColor="@color/white"
         android:text="COPYRIGHT © CHUNGBUK NATIONAL UNIVERSITY SPORTSCENTER, ALL RIGHT RESERVED"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
