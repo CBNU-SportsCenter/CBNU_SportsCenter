@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -79,7 +80,13 @@ public class UserCertificate extends AppCompatActivity {
 
         handler.postDelayed(r,0);
 
+        reNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handler.removeCallbacksAndMessages(null);
+               mCountDownTimer.cancel();
 
-
+            }
+        });
     }
 }
