@@ -11,19 +11,24 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.lang.ref.WeakReference;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
+import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 public class UserCertificate extends AppCompatActivity {
 
+    BackGroundThread backgroundThread;
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
     ImageView profileImage, reNew, qrCode;
+
 
     int[] images = new int[]{R.drawable.qrex1,R.drawable.qrex2,R.drawable.qrex3,R.drawable.qrex4,
             R.drawable.qrex5,R.drawable.qrex6,R.drawable.qrex7,R.drawable.qrex8,R.drawable.qrex9,R.drawable.qrex10};
@@ -53,6 +58,13 @@ public class UserCertificate extends AppCompatActivity {
         qrCode.setBackgroundResource(images[imageId]);
 
         Handler handler = new Handler();
+
+        TimeZone timeZone;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm:ss",Locale.KOREAN);
+        timeZone = TimeZone.getTimeZone("Asia/Seoul");
+        dateFormat.setTimeZone(timeZone);
+        Date date = new Date();
+        currentTime.setText(dateFormat.format(date));
 
         final Runnable r = new Runnable() {
             @Override
@@ -106,7 +118,6 @@ public class UserCertificate extends AppCompatActivity {
                             @Override
                             public void onTick(long l) {
                                 remainTime.setText(String.format(Locale.getDefault(),"%d 초",(Math.round((double)l /Timer_Interval)-1)));
-
                             }
 
                             @Override
@@ -129,4 +140,78 @@ public class UserCertificate extends AppCompatActivity {
 
         });
     }
+
+    private final TimeHandler timeHandler = new TimeHandler(this);
+
+    private static class TimeHandler extends Handler{
+        private final WeakReference<UserCertificate> userCertificate;
+        public TimeHandler(UserCertificate activity){
+            userCertificate = new WeakReference<UserCertificate>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg){
+            UserCertificate activity = userCertificate.get();
+            if(activity!=null){
+                activity.handleMessage(msg);
+            }
+        }
+    }
+
+    private void handleMessage(Message msg) {
+        TimeZone timeZone;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm:ss",Locale.KOREAN);
+        timeZone = TimeZone.getTimeZone("Asia/Seoul");
+        dateFormat.setTimeZone(timeZone);
+        Date date = new Date();
+        currentTime.setText(dateFormat.format(date));
+        //currentTime.setText(now);
+        //currentTime.setText(DateFormat.getDateTimeInstance().format(new Date()));
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+        backgroundThread = new BackGroundThread();
+        backgroundThread.setRunning(true);
+        backgroundThread.start();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+
+        boolean retry = true;
+        backgroundThread.setRunning(false);
+        while (retry){
+            try{
+                backgroundThread.join();
+                retry = false;
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public class BackGroundThread extends Thread{
+            boolean running = false;
+            void setRunning(boolean b){
+                running = b;
+            }
+
+            @Override
+            public void run(){
+                while(running){
+                    try{
+                        sleep(1000);
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                    timeHandler.sendMessage(timeHandler .obtainMessage());
+                }
+            }
+    }
+
+
 }
