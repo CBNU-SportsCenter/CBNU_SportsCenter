@@ -1,5 +1,6 @@
 package com.example.cbnu_sportscenter;
 
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -21,6 +22,8 @@ public class UserCertificate extends AppCompatActivity {
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
     ImageView profileImage, reNew, qrCode;
 
+    int[] images = new int[]{R.drawable.qrex1,R.drawable.qrex2,R.drawable.qrex3,R.drawable.qrex4,
+            R.drawable.qrex5,R.drawable.qrex6,R.drawable.qrex7,R.drawable.qrex8,R.drawable.qrex9,R.drawable.qrex10};
 
     private static final long Timer_Duration = 30000L;
     private static final long Timer_Interval = 1000L;
@@ -43,6 +46,10 @@ public class UserCertificate extends AppCompatActivity {
         reNew = (ImageView)findViewById(R.id.reNew);
         qrCode = (ImageView)findViewById(R.id.qrCode);
 
+        int imageId = (int)(Math.random()*images.length);
+
+        qrCode.setBackgroundResource(images[imageId]);
+
         Handler handler = new Handler();
 
         final Runnable r = new Runnable() {
@@ -55,9 +62,17 @@ public class UserCertificate extends AppCompatActivity {
                         remainTime.setText(String.format(Locale.getDefault(),"%d 초",l /Timer_Interval));
 
                     }
+
                     @Override
                     public void onFinish() {
+                        int newimageId = (int)(Math.random()*images.length);
+
+                       while(imageId == newimageId){
+                           newimageId = (int)(Math.random()*images.length);
+                       }
+                       qrCode.setBackgroundResource(images[newimageId]);
                     }
+
                 }.start();
             }
         };
