@@ -79,8 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="2022년 12월 10일 12:12:12"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"/>
 
                 <ImageButton
                     android:id="@+id/reNew"
@@ -101,15 +100,25 @@
         android:id="@+id/qrCode"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="36dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/qrex1"
         tools:srcCompat="@drawable/qrex1" />
 
     <TextView
         android:layout_gravity="center"
+        android:id="@+id/remainTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:text="남은 시간" />
+
+
+    <TextView
+        android:layout_gravity="center"
         android:id="@+id/university"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:textSize="24sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
