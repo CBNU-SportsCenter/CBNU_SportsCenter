@@ -25,6 +25,7 @@ public class UserCertificate extends AppCompatActivity {
         profileImage = (ImageView)findViewById(R.id.profileImage);
         reNew = (ImageView)findViewById(R.id.reNew);
         qrCode = (ImageView)findViewById(R.id.qrCode);
+        
 
     }
 }
