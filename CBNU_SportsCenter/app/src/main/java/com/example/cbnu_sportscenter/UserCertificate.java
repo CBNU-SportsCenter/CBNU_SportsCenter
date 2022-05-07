@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,9 +29,11 @@ public class UserCertificate extends AppCompatActivity {
             R.drawable.qrex5,R.drawable.qrex6,R.drawable.qrex7,R.drawable.qrex8,R.drawable.qrex9,R.drawable.qrex10};
 
     private static final long Timer_Duration = 30000L;
-    private static final long Timer_Interval = 1000L;
+    private static final long Timer_Interval = 1000;
 
     private CountDownTimer mCountDownTimer;
+    Random random = new Random();
+    int imageId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +50,6 @@ public class UserCertificate extends AppCompatActivity {
         profileImage = (ImageView)findViewById(R.id.profileImage);
         reNew = (ImageView)findViewById(R.id.reNew);
         qrCode = (ImageView)findViewById(R.id.qrCode);
-
-        int imageId = (int)(Math.random()*images.length);
-
         qrCode.setBackgroundResource(images[imageId]);
 
         Handler handler = new Handler();
@@ -56,22 +57,22 @@ public class UserCertificate extends AppCompatActivity {
         final Runnable r = new Runnable() {
             @Override
             public void run() {
-                handler.postDelayed(this,30000);
+                handler.postDelayed(this,Timer_Duration);
                 mCountDownTimer = new CountDownTimer(Timer_Duration,Timer_Interval) {   //총 30초동안, 매1초씩 줄어듬
                     @Override
                     public void onTick(long l) {
-                        remainTime.setText(String.format(Locale.getDefault(),"%d 초",l /Timer_Interval));
-
+                        remainTime.setText(String.format(Locale.getDefault(),"%d 초",(Math.round((double)l /Timer_Interval)-1)));  //시간 오류 해결
                     }
 
                     @Override
-                    public void onFinish() {
-                        int newimageId = (int)(Math.random()*images.length);
+                    public void onFinish() {   //종료된다면
+                        int newimageId = random.nextInt(images.length);
 
                        while(imageId == newimageId){
-                           newimageId = (int)(Math.random()*images.length);
+                           newimageId = random.nextInt(images.length);
                        }
                        qrCode.setBackgroundResource(images[newimageId]);
+                        imageId = newimageId;
                     }
 
                 }.start();
@@ -83,10 +84,49 @@ public class UserCertificate extends AppCompatActivity {
         reNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                handler.removeCallbacksAndMessages(null);
-               mCountDownTimer.cancel();
 
+                if(handler!=null) {  //만약 handler 있다면 취소
+                    handler.removeCallbacksAndMessages(null);
+                    mCountDownTimer.cancel();
+                }
+
+                int newimageId = random.nextInt(images.length);  //새로 이미지 설정
+
+                while(imageId == newimageId){
+                    newimageId = random.nextInt(images.length);
+                }
+                qrCode.setBackgroundResource(images[newimageId]);
+                imageId = newimageId;
+
+                final Runnable r = new Runnable() {
+                    @Override
+                    public void run() {
+                        handler.postDelayed(this,Timer_Duration);
+                        mCountDownTimer = new CountDownTimer(Timer_Duration,Timer_Interval) {   //총 30초동안, 매1초씩 줄어듬
+                            @Override
+                            public void onTick(long l) {
+                                remainTime.setText(String.format(Locale.getDefault(),"%d 초",(Math.round((double)l /Timer_Interval)-1)));
+
+                            }
+
+                            @Override
+                            public void onFinish() {
+                                int newimageId = random.nextInt(images.length);
+
+                                while(imageId == newimageId){
+                                    newimageId = random.nextInt(images.length);
+                                }
+
+                                qrCode.setBackgroundResource(images[newimageId]);
+                                imageId = newimageId;
+                            }
+
+                        }.start();
+                    }
+                };
+                handler.postDelayed(r,0);
             }
+
         });
     }
 }
