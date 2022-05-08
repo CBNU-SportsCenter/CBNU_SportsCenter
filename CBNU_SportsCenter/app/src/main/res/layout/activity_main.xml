@@ -26,22 +26,27 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="이용증" />
+            android:text="이용증"
+            android:id="@+id/Cert"/>
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="이용조회" />
+            android:text="이용조회"
+            android:id="@+id/Usag"/>
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="소개" />
+            android:text="소개"
+            android:id="@+id/Intr"/>
+
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="공지" />
+            android:text="공지"
+            android:id="@+id/Noti"/>
 
     </LinearLayout>
 
