@@ -45,11 +45,11 @@
                 android:layout_marginTop="20dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/ID"
+                    android:id="@+id/StudentId"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="아이디"
+                    android:hint="학번"
                     android:textColorHint="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -75,6 +75,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/Password2"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -92,12 +93,32 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+
+
+
+
+
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/StudentId"
+                    android:id="@+id/Major"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="학번(부재시 공백가능)"
+                    android:hint="학과"
+                    android:textColorHint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Telephone"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="전화번호(숫자만 입력해주세요)"
                     android:textColorHint="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -107,25 +128,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/telephone"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="전화번호"
-                    android:textColorHint="@color/black">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/email"
+                    android:id="@+id/Email"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="이메일"
+                    android:inputType="textEmailAddress"
                     android:textColorHint="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -133,15 +141,16 @@
                         android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
             </LinearLayout>
 
             <Button
                 android:id="@+id/btn_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="회원가입"
                 android:layout_marginTop="10dp"
-                />
+                android:onClick="signupUser"
+                android:text="회원가입" />
 
             <Button
                 android:id="@+id/btn_back"
