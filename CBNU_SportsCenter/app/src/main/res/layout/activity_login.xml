@@ -38,7 +38,7 @@
             android:id="@+id/textField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="학번"
             android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -54,7 +54,7 @@
             android:id="@+id/textField2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="비밀번호"
             android:textColorHint="@color/black"
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
