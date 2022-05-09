@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu1"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="이용증" />
+
+    <item
+        android:id="@+id/menu2"
+        app:showAsAction="always"
+        android:title="이용조회" />
+
+    <item
+        android:id="@+id/menu3"
+        app:showAsAction="always"
+        android:title="소개" />
+
+    <item
+        android:id="@+id/menu4"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="공지" />
+    <item
+        android:id="@+id/menu5"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="마이페이지" />
+
+</menu>

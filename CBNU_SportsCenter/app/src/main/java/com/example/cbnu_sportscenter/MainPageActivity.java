@@ -12,16 +12,25 @@ import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainPageActivity extends AppCompatActivity {
     Toolbar mainToolbar;
-
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mainToolbar=(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mainToolbar);
+
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView)findViewById(R.id.nav_view);
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //왼쪽버튼 사용
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu); //왼쪽버튼 아이콘
@@ -40,6 +49,10 @@ public class MainPageActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         //return super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
+            case android.R.id.home: //툴바 왼쪽위 버튼(메뉴)
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+
             case R.id.mypage:
                 // User chose the "Settings" item, show the app settings UI...
                 Toast.makeText(getApplicationContext(), "마이페이지 버튼 클릭됨", Toast.LENGTH_SHORT).show();
@@ -53,4 +66,13 @@ public class MainPageActivity extends AppCompatActivity {
 
         }
     }
+    @Override public void onBackPressed() { //뒤로가기 했을 때//
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
+
 }
