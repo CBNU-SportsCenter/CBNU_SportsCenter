@@ -31,10 +31,39 @@ public class MainPageActivity extends AppCompatActivity {
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         navigationView = (NavigationView)findViewById(R.id.nav_view);
 
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //왼쪽버튼 사용
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu); //왼쪽버튼 아이콘
         getSupportActionBar().setTitle("Sports Center");  //해당 액티비티의 툴바에 있는 타이틀을 공백으로 처리
+        
+        //네비게이션뷰 선택하는 코드
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                menuItem.setChecked(true);
+                drawerLayout.closeDrawers();
+
+                int id = menuItem.getItemId();
+                String title = menuItem.getTitle().toString();
+
+                if(id == R.id.menu1){
+                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                }
+                else if(id == R.id.menu2){
+                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                }
+                else if(id == R.id.menu3){
+                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                }
+                else if(id == R.id.menu4){
+                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                }
+                else if(id == R.id.menu5){
+                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                }
+
+                return true;
+            }
+        });
     }
 
     @Override //메뉴설정
