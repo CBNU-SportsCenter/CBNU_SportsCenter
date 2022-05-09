@@ -23,12 +23,13 @@ public class MainPageActivity extends AppCompatActivity {
         mainToolbar=(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mainToolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //왼쪽버튼 사용
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu); //왼쪽버튼 아이콘
+        getSupportActionBar().setTitle("Sports Center");  //해당 액티비티의 툴바에 있는 타이틀을 공백으로 처리
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    @Override //메뉴설정
+    public boolean onCreateOptionsMenu(Menu menu) { 
         //return super.onCreateOptionsMenu(menu);
         MenuInflater menuInflater=getMenuInflater();
         menuInflater.inflate(R.menu.main_toolbar,menu);
@@ -39,9 +40,9 @@ public class MainPageActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         //return super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
-            case R.id.menu:
+            case R.id.mypage:
                 // User chose the "Settings" item, show the app settings UI...
-                Toast.makeText(getApplicationContext(), "환경설정 버튼 클릭됨", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "마이페이지 버튼 클릭됨", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:
