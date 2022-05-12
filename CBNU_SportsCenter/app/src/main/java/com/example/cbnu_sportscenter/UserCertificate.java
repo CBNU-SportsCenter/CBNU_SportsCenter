@@ -1,29 +1,30 @@
 package com.example.cbnu_sportscenter;
 
-import androidx.annotation.DrawableRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import java.lang.ref.WeakReference;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 import java.util.TimeZone;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
-public class UserCertificate extends AppCompatActivity {
+public class UserCertificate extends Fragment {
 
     BackGroundThread backgroundThread;
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
@@ -40,21 +41,22 @@ public class UserCertificate extends AppCompatActivity {
     Random random = new Random();
     int imageId = 1;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_certificate);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        userMajor = findViewById(R.id.userMajor);
-        studentCode = findViewById(R.id.studentCode);
-        userName = findViewById(R.id.userName);
-        currentTime = findViewById(R.id.currentTime);
-        university = findViewById(R.id.university);
-        remainTime = findViewById(R.id.remainTime);
+        View view=inflater.inflate(R.layout.activity_user_certificate,container,false);
 
-        profileImage = (ImageView)findViewById(R.id.profileImage);
-        reNew = (ImageView)findViewById(R.id.reNew);
-        qrCode = (ImageView)findViewById(R.id.qrCode);
+        userMajor = view.findViewById(R.id.userMajor);
+        studentCode = view.findViewById(R.id.studentCode);
+        userName = view.findViewById(R.id.userName);
+        currentTime = view.findViewById(R.id.currentTime);
+        university = view.findViewById(R.id.university);
+        remainTime = view.findViewById(R.id.remainTime);
+
+        profileImage = (ImageView)view.findViewById(R.id.profileImage);
+        reNew = (ImageView)view.findViewById(R.id.reNew);
+        qrCode = (ImageView)view.findViewById(R.id.qrCode);
         qrCode.setBackgroundResource(images[imageId]);
 
         Handler handler = new Handler();
@@ -80,10 +82,10 @@ public class UserCertificate extends AppCompatActivity {
                     public void onFinish() {   //종료된다면
                         int newimageId = random.nextInt(images.length);
 
-                       while(imageId == newimageId){
-                           newimageId = random.nextInt(images.length);
-                       }
-                       qrCode.setBackgroundResource(images[newimageId]);
+                        while(imageId == newimageId){
+                            newimageId = random.nextInt(images.length);
+                        }
+                        qrCode.setBackgroundResource(images[newimageId]);
                         imageId = newimageId;
                     }
 
@@ -139,6 +141,7 @@ public class UserCertificate extends AppCompatActivity {
             }
 
         });
+        return view;
     }
 
     private final TimeHandler timeHandler = new TimeHandler(this);
@@ -170,7 +173,7 @@ public class UserCertificate extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart(){
+    public void onStart(){
         super.onStart();
 
         backgroundThread = new BackGroundThread();
@@ -179,7 +182,7 @@ public class UserCertificate extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop(){
+    public void onStop(){
         super.onStop();
 
         boolean retry = true;
@@ -195,23 +198,24 @@ public class UserCertificate extends AppCompatActivity {
     }
 
     public class BackGroundThread extends Thread{
-            boolean running = false;
-            void setRunning(boolean b){
-                running = b;
-            }
+        boolean running = false;
+        void setRunning(boolean b){
+            running = b;
+        }
 
-            @Override
-            public void run(){
-                while(running){
-                    try{
-                        sleep(1000);
-                    }catch (InterruptedException e){
-                        e.printStackTrace();
-                    }
-                    timeHandler.sendMessage(timeHandler .obtainMessage());
+        @Override
+        public void run(){
+            while(running){
+                try{
+                    sleep(1000);
+                }catch (InterruptedException e){
+                    e.printStackTrace();
                 }
+                timeHandler.sendMessage(timeHandler .obtainMessage());
             }
+        }
     }
 
 
 }
+

@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UserCertificate"
+            android:name=".UserCertificateFragment"
             android:exported="false" />
             <activity
                 android:name=".LoginActivity"
