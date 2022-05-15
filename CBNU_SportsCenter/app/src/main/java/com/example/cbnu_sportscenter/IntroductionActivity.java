@@ -39,7 +39,8 @@ public class IntroductionActivity extends AppCompatActivity {
         toDirections.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent=new Intent(getApplicationContext(),DirectionActivity.class);
+                startActivity(intent);
             }
         });
 
