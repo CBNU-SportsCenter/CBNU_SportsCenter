@@ -2,11 +2,7 @@ package com.example.cbnu_sportscenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-<<<<<<< HEAD
-import android.app.DatePickerDialog;
-=======
-import android.content.Intent;
->>>>>>> develop
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
