@@ -35,10 +35,10 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField"
+            android:id="@+id/Studentid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="학번"
             android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -51,10 +51,10 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField2"
+            android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="비밀번호"
             android:textColorHint="@color/black"
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -79,12 +79,12 @@
 
 
         <Button
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
             android:background="#000"
             android:textColor="#fff"
-            android:id="@+id/btn_login"
             />
 
         <Button
