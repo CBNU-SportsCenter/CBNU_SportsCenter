@@ -17,6 +17,7 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
     Button btn_signup;
+    Button button2;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getApplicationContext(),SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+        button2=findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),IntroductionActivity2.class);
                 startActivity(intent);
             }
         });
