@@ -35,7 +35,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField"
+            android:id="@+id/Studentid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="학번"
@@ -51,7 +51,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField2"
+            android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="비밀번호"
@@ -79,6 +79,7 @@
 
 
         <Button
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"

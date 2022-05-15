@@ -2,6 +2,8 @@ package com.example.cbnu_sportscenter;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -20,8 +22,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PASSWORD="password";
     private static final String COLUMN_NAME="name";
     private static final String COLUMN_MAJOR="major";
-    private static final String COLUMN_PHONE="phone";
-    private static final String COLUMN_EMAIL="email";
+    private static final String COLUMN_PROGRAM="program";
+
 
 
 
@@ -37,8 +39,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_PASSWORD+" TEXT, "+
                 COLUMN_NAME+" TEXT, "+
                 COLUMN_MAJOR+" TEXT, "+
-                COLUMN_PHONE+" TEXT, "+
-                COLUMN_EMAIL+" TEXT);";
+                COLUMN_PROGRAM+" TEXT);";
         db.execSQL(query);
     }
 
@@ -48,8 +49,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void AddAccount(String studentid, String password, String name,String major,
-                String phone, String email){
+    long AddAccount(String studentid, String password, String name,String major, String program
+                ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -57,15 +58,38 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_PASSWORD, password);
         cv.put(COLUMN_NAME, name);
         cv.put(COLUMN_MAJOR, major);
-        cv.put(COLUMN_PHONE, phone);
-        cv.put(COLUMN_EMAIL, email);
+        cv.put(COLUMN_PROGRAM, program);
+
 
         long result = db.insert(TABLE_NAME,null, cv);
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+            return result;
         }else {
             Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "result is"+result, Toast.LENGTH_SHORT).show();
+            return result;
         }
+    }
+
+
+    public Boolean checkuserstudentid(String studentid) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?", new String[]{studentid});
+        if (cursor.getCount() > 0)
+            return true;
+        else
+            return false;
+    }
+
+    public Boolean checkstudentidpassword(String studentid, String password){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ? and password = ?",
+                new String[] {studentid,password});
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
     }
 
 }
