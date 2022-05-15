@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cbnu_sportscenter">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,12 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CBNU_SportsCenter"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SignupActivity">
-        </activity>
-        <activity android:name=".StartActivity"
+        <activity
+            android:name=".FacilityMenuActivity"
+            android:exported="false" />
+        <activity android:name=".SignupActivity"></activity>
+        <activity
+            android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,11 +31,13 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
-        <activity android:name=".IntroductionActivity"
-            android:exported="true"/>
-        <activity android:name=".IntroductionActivity2"
-            android:exported="true"/>
+            android:exported="true" />
+        <activity
+            android:name=".IntroductionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".IntroductionActivity2"
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -38,9 +47,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
 </manifest>

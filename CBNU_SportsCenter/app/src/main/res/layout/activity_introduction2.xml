@@ -24,10 +24,10 @@
         <ImageView
             android:id="@+id/centerimage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType = "centerCrop"
-            app:srcCompat="@drawable/sportscenter"
-            android:layout_marginBottom="24dp"/>
+            android:layout_height="196dp"
+            android:layout_marginBottom="24dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/sportscenter" />
 
         <LinearLayout
             android:layout_width="match_parent"
