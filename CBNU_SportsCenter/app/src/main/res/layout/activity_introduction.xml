@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".IntroductionActivity">
+
+    <Button
+        android:id="@+id/toIntroduction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="소개글" />
+
+    <Button
+        android:id="@+id/toFacilities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="내부 시설" />
+
+    <Button
+        android:id="@+id/toDirections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="오시는 길" />
+</LinearLayout>
