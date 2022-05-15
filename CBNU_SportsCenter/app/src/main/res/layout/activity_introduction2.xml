@@ -21,13 +21,12 @@
           android:layout_height="wrap_content"
           android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/centerimage"
+        <ViewFlipper
+            android:id="@+id/viewFlipper"
             android:layout_width="match_parent"
             android:layout_height="196dp"
             android:layout_marginBottom="24dp"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/sportscenter" />
+          />
 
         <LinearLayout
             android:layout_width="match_parent"
