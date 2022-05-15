@@ -85,7 +85,6 @@
             android:text="Login"
             android:background="#000"
             android:textColor="#fff"
-            android:id="@+id/btn_login"
             />
 
         <Button
