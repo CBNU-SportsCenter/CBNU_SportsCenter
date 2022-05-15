@@ -14,9 +14,12 @@
         android:theme="@style/Theme.CBNU_SportsCenter"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DirectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".FacilityMenuActivity"
             android:exported="false" />
-        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".SignupActivity" />
         <activity
             android:name=".StartActivity"
             android:exported="true">

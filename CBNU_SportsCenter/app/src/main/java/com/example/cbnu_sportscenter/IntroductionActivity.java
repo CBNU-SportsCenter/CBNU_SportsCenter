@@ -2,6 +2,7 @@ package com.example.cbnu_sportscenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,14 +23,16 @@ public class IntroductionActivity extends AppCompatActivity {
         toIntroduction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent=new Intent(getApplicationContext(),IntroductionActivity2.class);
+                startActivity(intent);
             }
         });
 
         toFacilities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent=new Intent(getApplicationContext(),FacilityMenuActivity.class);
+                startActivity(intent);
             }
         });
 
