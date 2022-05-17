@@ -16,6 +16,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:id="@+id/googleMap"
+                class="com.google.android.gms.maps.MapFragment" />
+
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
