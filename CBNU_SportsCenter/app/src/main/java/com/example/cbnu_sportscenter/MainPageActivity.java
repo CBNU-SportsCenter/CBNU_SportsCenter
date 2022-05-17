@@ -27,6 +27,7 @@ public class MainPageActivity extends AppCompatActivity {
     Button cert,usage,intro,notice;
     //프래그먼트 정의
     UserCertificate userCertificate;
+    NoticeFragment noticeFragment;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -61,7 +62,7 @@ public class MainPageActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
                 }
                 else if(id == R.id.menu4){
-                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                    replaceFragment(noticeFragment);
                 }
                 else if(id == R.id.menu5){
                     Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
@@ -71,7 +72,7 @@ public class MainPageActivity extends AppCompatActivity {
         });
 
         userCertificate=new UserCertificate();
-        
+        noticeFragment=new NoticeFragment();
         //프레그먼트 이동 버튼
         cert=(Button)findViewById(R.id.Cert);
         usage=(Button)findViewById(R.id.Usag);
@@ -103,8 +104,7 @@ public class MainPageActivity extends AppCompatActivity {
         notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //fragmentTransaction.replace(R.id.frameLayout,userCertificate).commit();
-                Toast.makeText(getApplicationContext(), "공지", Toast.LENGTH_SHORT).show();
+                replaceFragment(noticeFragment);
             }
         });
     }
@@ -113,8 +113,8 @@ public class MainPageActivity extends AppCompatActivity {
     public void replaceFragment(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        //첫화면 프래그먼트 지정
-        fragmentTransaction.replace(R.id.frameLayout,userCertificate).commit();
+        //화면변경
+        fragmentTransaction.replace(R.id.frameLayout,fragment).commit();
     }
     @Override //메뉴설정
     public boolean onCreateOptionsMenu(Menu menu) { 
