@@ -3,11 +3,9 @@
     package="com.example.cbnu_sportscenter">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CBNU_SportsCenter"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".DirectionActivity"
+            android:exported="false" />
         <activity
             android:name=".FacilityMenuActivity"
             android:exported="false" />
@@ -52,11 +53,9 @@
             </intent-filter>
         </activity>
 
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>
