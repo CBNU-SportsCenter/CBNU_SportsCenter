@@ -70,9 +70,6 @@ public class UserCertificate extends Fragment {
             userMajor.setText(bundle.getString("major"));
         }
 
-            //String yass=this.getArguments().getString("sex");
-            //userMajor.setText(yass);
-            //Toast.makeText(getContext(), "success"+bundle.getString("sex"), Toast.LENGTH_SHORT).show();
 
 
 
