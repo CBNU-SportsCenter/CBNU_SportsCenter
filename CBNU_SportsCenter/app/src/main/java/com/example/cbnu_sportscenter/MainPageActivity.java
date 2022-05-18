@@ -43,7 +43,6 @@ public class MainPageActivity extends AppCompatActivity {
         major=intent.getStringExtra("major");
         program=intent.getStringExtra("program");
 
-        Toast.makeText(getApplicationContext(), "test"+studentid, Toast.LENGTH_SHORT).show();
 
 
         //툴바

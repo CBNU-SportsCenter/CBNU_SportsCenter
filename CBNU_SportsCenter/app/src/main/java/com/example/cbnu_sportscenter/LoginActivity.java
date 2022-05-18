@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             if(cursor.getCount()>0) {
                                 cursor.moveToFirst();
-                                Toast.makeText(LoginActivity.this, "LoginPageActivity cursor 1", Toast.LENGTH_SHORT).show();
+
 
                                 intent.putExtra("studentid",cursor.getString(1));
                                 intent.putExtra("name",cursor.getString(3));
