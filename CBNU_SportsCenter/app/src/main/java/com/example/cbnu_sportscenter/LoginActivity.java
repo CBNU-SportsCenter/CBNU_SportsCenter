@@ -1,8 +1,12 @@
 package com.example.cbnu_sportscenter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -52,15 +56,58 @@ public class LoginActivity extends AppCompatActivity {
 
                   String studentid=Studentid.getEditText().getText().toString();
                   String password=Password.getEditText().getText().toString();
-
+                  int id;
                 if(studentid.equals("")||password.equals(""))
                     Toast.makeText(LoginActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
                     Boolean checkuserpass = DB.checkstudentidpassword(studentid, password);
                     if(checkuserpass==true){
+                        Intent intent=new Intent(getApplicationContext(),MainPageActivity.class);
+                        MyDatabaseHelper dbHelper=new MyDatabaseHelper(LoginActivity.this);
+                        SQLiteDatabase MyDB = dbHelper.getWritableDatabase();
+
+                        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?",
+                                new String[] {studentid});
+                        if(cursor.getCount()>0) {
+                            cursor.moveToFirst();
+
+
+
+
+                            if(cursor.getCount()>0) {
+                                cursor.moveToFirst();
+                                Toast.makeText(LoginActivity.this, "LoginPageActivity cursor 1", Toast.LENGTH_SHORT).show();
+
+                                intent.putExtra("studentid",cursor.getString(1));
+                                intent.putExtra("name",cursor.getString(3));
+                                intent.putExtra("major",cursor.getString(4));
+                                intent.putExtra("program",cursor.getString(5));
+
+
+
+
+                            }
+                            else{
+                                Toast.makeText(LoginActivity.this, "LoginPageActivity cursor 0", Toast.LENGTH_SHORT).show();
+                            }
+
+
+
+
+
+
+
+                            startActivity(intent);
+                        }
+                        else{
+                            Toast.makeText(LoginActivity.this, "cursor count 0", Toast.LENGTH_SHORT).show();
+                        }
                         Toast.makeText(LoginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
-                        Intent intent  = new Intent(getApplicationContext(), MainPageActivity.class);
-                        startActivity(intent);
+
+
+
+
+
                     }else{
                         Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     }
