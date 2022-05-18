@@ -15,7 +15,7 @@
         </activity>
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".StartActivity"
+        <activity android:name=".SportlistActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,8 +30,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-
+        <activity android:name=".SwimActivity" android:label="수영"/>
+        <activity android:name=".WeightActivity" android:label="헬스"/>
+        <activity android:name=".SquashActivity" android:label="스쿼시"/>
     </application>
 
 

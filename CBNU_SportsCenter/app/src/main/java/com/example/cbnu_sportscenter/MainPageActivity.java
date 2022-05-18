@@ -91,6 +91,8 @@ public class MainPageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //fragmentTransaction.replace(R.id.frameLayout,userCertificate).commit();
                 Toast.makeText(getApplicationContext(), "이용조회", Toast.LENGTH_SHORT).show();
+
+
             }
         });
         intro.setOnClickListener(new View.OnClickListener() {
