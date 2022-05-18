@@ -1,6 +1,8 @@
 package com.example.cbnu_sportscenter;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,11 +27,25 @@ public class MainPageActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Button cert,usage,intro,notice;
+    Intent intent;  //MainPageActivity 인텐트
+    String studentid,name,major,program;     //로그인할때 넘겨받은 유저아이디
+
     //프래그먼트 정의
     UserCertificate userCertificate;
+    MypageFragment mypageFragment;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //로그인 시 넘겨받은 정보 받기
+        intent=getIntent();
+        studentid=intent.getStringExtra("studentid");
+        name=intent.getStringExtra("name");
+        major=intent.getStringExtra("major");
+        program=intent.getStringExtra("program");
+
+        Toast.makeText(getApplicationContext(), "test"+studentid, Toast.LENGTH_SHORT).show();
+
+
         //툴바
         mainToolbar=(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mainToolbar);
@@ -71,7 +87,16 @@ public class MainPageActivity extends AppCompatActivity {
         });
 
         userCertificate=new UserCertificate();
-        
+        mypageFragment=new MypageFragment();
+
+        Bundle bundle=new Bundle();
+        bundle.putString("studentid", studentid);
+        bundle.putString("name", name);
+        bundle.putString("major", major);
+        bundle.putString("program", program);
+        bundle.putString("studentid", studentid);
+        userCertificate.setArguments(bundle);
+
         //프레그먼트 이동 버튼
         cert=(Button)findViewById(R.id.Cert);
         usage=(Button)findViewById(R.id.Usag);
@@ -83,6 +108,7 @@ public class MainPageActivity extends AppCompatActivity {
         cert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "이용증", Toast.LENGTH_SHORT).show();
                 replaceFragment(userCertificate);
             }
         });
@@ -134,7 +160,7 @@ public class MainPageActivity extends AppCompatActivity {
 
             case R.id.mypage:
                 // User chose the "Settings" item, show the app settings UI...
-                Toast.makeText(getApplicationContext(), "마이페이지 버튼 클릭됨", Toast.LENGTH_SHORT).show();
+                replaceFragment(mypageFragment);
                 return true;
 
             default:
@@ -153,5 +179,6 @@ public class MainPageActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
 
 }

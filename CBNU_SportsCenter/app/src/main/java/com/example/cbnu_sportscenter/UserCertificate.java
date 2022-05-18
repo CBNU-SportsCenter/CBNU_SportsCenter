@@ -1,5 +1,8 @@
 package com.example.cbnu_sportscenter;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -9,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -58,6 +62,22 @@ public class UserCertificate extends Fragment {
         reNew = (ImageView)view.findViewById(R.id.reNew);
         qrCode = (ImageView)view.findViewById(R.id.qrCode);
         qrCode.setBackgroundResource(images[imageId]);
+        Bundle bundle=getArguments();
+
+        if(bundle!=null){
+            userName.setText(bundle.getString("name"));
+            studentCode.setText(bundle.getString("studentid"));
+            userMajor.setText(bundle.getString("major"));
+        }
+
+            //String yass=this.getArguments().getString("sex");
+            //userMajor.setText(yass);
+            //Toast.makeText(getContext(), "success"+bundle.getString("sex"), Toast.LENGTH_SHORT).show();
+
+
+
+
+
 
         Handler handler = new Handler();
 
@@ -215,6 +235,7 @@ public class UserCertificate extends Fragment {
             }
         }
     }
+
 
 
 }
