@@ -197,11 +197,11 @@ public class MainPageActivity extends AppCompatActivity {
     public void getInfo(Intent intent){
         intent=getIntent();
         studentid=intent.getStringExtra("studentid");
-        password=intent.getStringExtra("password");
+      /*  password=intent.getStringExtra("password");
         name=intent.getStringExtra("name");
         major=intent.getStringExtra("major");
         program=intent.getStringExtra("program");
-        Toast.makeText(getApplicationContext(), "userid"+id, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "userid"+id, Toast.LENGTH_SHORT).show();*/
     }
 
     public void createBundle(Bundle bundle){
