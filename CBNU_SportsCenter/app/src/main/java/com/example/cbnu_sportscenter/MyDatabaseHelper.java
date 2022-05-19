@@ -67,7 +67,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             return result;
         }else {
             Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, "result is"+result, Toast.LENGTH_SHORT).show();
             return result;
         }
     }
