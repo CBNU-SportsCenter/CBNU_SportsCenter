@@ -36,6 +36,7 @@ public class MainPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //로그인 시 넘겨받은 정보 받기
         intent=getIntent();
         studentid=intent.getStringExtra("studentid");
@@ -68,6 +69,7 @@ public class MainPageActivity extends AppCompatActivity {
 
                 if(id == R.id.menu1){
                     replaceFragment(userCertificate);
+                    getSupportActionBar().setTitle("이용증");
                 }
                 else if(id == R.id.menu2){
                     Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
@@ -79,6 +81,7 @@ public class MainPageActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
                 }
                 else if(id == R.id.menu5){
+                    replaceFragment(mypageFragment);
                     Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
                 }
                 return true;
@@ -101,6 +104,7 @@ public class MainPageActivity extends AppCompatActivity {
         usage=(Button)findViewById(R.id.Usag);
         intro=(Button)findViewById(R.id.Intr);
         notice=(Button)findViewById(R.id.Noti);
+
 
         replaceFragment(userCertificate);
 
@@ -139,7 +143,8 @@ public class MainPageActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         //첫화면 프래그먼트 지정
-        fragmentTransaction.replace(R.id.frameLayout,userCertificate).commit();
+        fragmentTransaction.replace(R.id.frameLayout,fragment).commit();
+        //fragmentTransaction.replace(R.id.frameLayout,mypageFragment).commit();
     }
     @Override //메뉴설정
     public boolean onCreateOptionsMenu(Menu menu) { 
