@@ -25,10 +25,11 @@ public class SignupActivity extends AppCompatActivity {
 
     Button btn_back,btn_signup;
     TextInputLayout StudentId, Password1, Password2,
-            Major, Name, Telephone,Email;
+            Major, Name;
     MyDatabaseHelper DB;
     Spinner Spn;
     ArrayAdapter arrayAdapter;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
@@ -81,7 +82,7 @@ public class SignupActivity extends AppCompatActivity {
                         if(checkstudentid==false){
                            /* MyDatabaseHelper myDB=new MyDatabaseHelper(SignupActivity.this);
                             myDB.AddAccount(studentid,password1, name, major, phone, email);*/
-                        long result=DB.AddAccount(studentid,password1, name, major, program);
+                        long result=DB.addAccount(studentid,password1, name, major, program);
                         if(result!=-1)
                         {
                             Intent intent=new Intent(getApplicationContext(),LoginActivity.class);

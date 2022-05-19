@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -20,25 +21,16 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 
 public class MypageFragment extends Fragment {
 
-    TextView program;
+    TextView userprogram;
     Button btn_update;
     UpdateFragment updatefragment;
-
-    /*
-    // TODO: Rename and change types and number of parameters
-    public static MypageFragment newInstance(String param1, String param2) {
-        MypageFragment fragment = new MypageFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-*/
+    String studentid,program;
+    Bundle bundle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,15 +39,29 @@ public class MypageFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_mypage, container, false);
         view.findViewById(R.id.mypage);
 
-        program=view.findViewById(R.id.program);
+        userprogram=view.findViewById(R.id.userProgram);
         btn_update=view.findViewById(R.id.btn_update);
         updatefragment=new UpdateFragment();
 
-        Bundle bundle=getArguments();
 
-        if(bundle!=null){
-            program.setText("프로그램: "+bundle.getString("program"));
+
+        bundle=getArguments();
+        Set<String> keys = bundle.keySet();
+
+
+        if(keys.size()>0){  //정보가 정상적으로 전달되었을때
+            MyDatabaseHelper dbHelper=new MyDatabaseHelper(getActivity().getApplicationContext());
+            studentid=bundle.getString("studentid");
+            program=dbHelper.getProgram(studentid);
+            userprogram.setText("프로그램: "+program);
         }
+
+
+        else{       //정보가 정상적으로 전달되지 않았을때
+            Toast.makeText(container.getContext(), "bundle count null", Toast.LENGTH_SHORT).show();
+        }
+
+
 
 
         BarChart barChart = view.findViewById(R.id.barchart);
@@ -86,6 +92,9 @@ public class MypageFragment extends Fragment {
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle=new Bundle();
+                bundle.putString("studentid", studentid);
+                updatefragment.setArguments(bundle);
                 ((MainPageActivity)getActivity()).getSupportFragmentManager().
                         beginTransaction().replace(R.id.frameLayout, updatefragment).commit();;
             }

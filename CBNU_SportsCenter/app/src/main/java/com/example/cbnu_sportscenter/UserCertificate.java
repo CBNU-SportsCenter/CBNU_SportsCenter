@@ -66,13 +66,13 @@ public class UserCertificate extends Fragment {
         qrCode.setBackgroundResource(images[imageId]);
 
 
+        /****** 유저이름, 학번, 학과 정보 적용하는부분*******/
 
         bundle=getArguments();
         Set<String> keys = bundle.keySet();
 
 
         if(keys.size()>0){  //정보가 정상적으로 전달되었을때
-            Toast.makeText(container.getContext(), "bundle count not null", Toast.LENGTH_SHORT).show();
             setUserinfo();
         }
 
@@ -81,7 +81,7 @@ public class UserCertificate extends Fragment {
             Toast.makeText(container.getContext(), "bundle count null", Toast.LENGTH_SHORT).show();
         }
 
-
+        /****** 여기까지 *******/
 
 
 
