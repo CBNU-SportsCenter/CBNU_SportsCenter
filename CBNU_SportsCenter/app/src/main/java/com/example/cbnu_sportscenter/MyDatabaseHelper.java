@@ -91,4 +91,46 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
+    public String getName(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?",new String[] {studentid});
+
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            return cursor.getString(3);
+        }
+
+        else{
+            return "error";
+        }
+    }
+
+    public String getMajor(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?",new String[] {studentid});
+
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            return cursor.getString(4);
+        }
+
+        else{
+            return "error";
+        }
+    }
+
+    public String getProgram(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?",new String[] {studentid});
+
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            return cursor.getString(5);
+        }
+
+        else{
+            return "error";
+        }
+    }
+
 }

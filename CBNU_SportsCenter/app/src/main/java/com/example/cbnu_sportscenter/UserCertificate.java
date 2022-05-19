@@ -33,7 +33,7 @@ public class UserCertificate extends Fragment {
     BackGroundThread backgroundThread;
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
     ImageView profileImage, reNew, qrCode;
-
+    String studentid,name,major;
 
     int[] images = new int[]{R.drawable.qrex1,R.drawable.qrex2,R.drawable.qrex3,R.drawable.qrex4,
             R.drawable.qrex5,R.drawable.qrex6,R.drawable.qrex7,R.drawable.qrex8,R.drawable.qrex9,R.drawable.qrex10};
@@ -65,9 +65,16 @@ public class UserCertificate extends Fragment {
         Bundle bundle=getArguments();
 
         if(bundle!=null){
-            userName.setText(bundle.getString("name"));
-            studentCode.setText(bundle.getString("studentid"));
-            userMajor.setText(bundle.getString("major"));
+            studentid=bundle.getString("studentid");
+            MyDatabaseHelper dbHelper=new MyDatabaseHelper(container.getContext());
+            name=dbHelper.getName(studentid);
+            major=dbHelper.getMajor(studentid);
+
+
+            studentCode.setText(studentid);
+            userName.setText(name);
+            userMajor.setText(major);
+
         }
 
 

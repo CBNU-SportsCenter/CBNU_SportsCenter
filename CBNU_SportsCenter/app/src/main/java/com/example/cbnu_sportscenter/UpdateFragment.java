@@ -4,13 +4,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -22,11 +19,9 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 
 
-public class MypageFragment extends Fragment {
+public class UpdateFragment extends Fragment {
 
     TextView program;
-    Button btn_update;
-    UpdateFragment updatefragment;
 
     /*
     // TODO: Rename and change types and number of parameters
@@ -44,12 +39,10 @@ public class MypageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_mypage, container, false);
-        view.findViewById(R.id.mypage);
+        View view= inflater.inflate(R.layout.fragment_update, container, false);
+        view.findViewById(R.id.update);
 
-        program=view.findViewById(R.id.program);
-        btn_update=view.findViewById(R.id.btn_update);
-        updatefragment=new UpdateFragment();
+        //program=view.findViewById(R.id.update);
 
         Bundle bundle=getArguments();
 
@@ -57,7 +50,7 @@ public class MypageFragment extends Fragment {
             program.setText("프로그램: "+bundle.getString("program"));
         }
 
-
+/*
         BarChart barChart = view.findViewById(R.id.barchart);
 
         //샘플 데이터
@@ -81,16 +74,7 @@ public class MypageFragment extends Fragment {
         barChart.setData(barData);
         barChart.getDescription().setText("Bar Chart Example");
         barChart.animateY(2000);
-
-
-        btn_update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((MainPageActivity)getActivity()).getSupportFragmentManager().
-                        beginTransaction().replace(R.id.frameLayout, updatefragment).commit();;
-            }
-        });
-
+*/
 
         return view;
     }
