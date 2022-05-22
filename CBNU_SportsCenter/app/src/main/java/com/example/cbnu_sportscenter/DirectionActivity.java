@@ -37,6 +37,8 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
     @Override
     public void onMapReady(GoogleMap map){
         gMap = map;
+        gMap.setMinZoomPreference(6.0f);   //최소 줌 크기 설정
+        gMap.setMaxZoomPreference(14.0f);  //최대 줌 크기 설정
         gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(36.62724140000011, 127.45646389999949),15));
 
@@ -51,7 +53,12 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
         Bitmap smallMarker = Bitmap.createScaledBitmap(b,90, 90, false);
         markerOptions  .icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
         gMap.addMarker(markerOptions);
+
+
     }
+
+
+
 
 
 
