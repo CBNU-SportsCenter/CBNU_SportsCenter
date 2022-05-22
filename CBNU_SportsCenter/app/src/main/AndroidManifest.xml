@@ -10,12 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CBNU_SportsCenter"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".SignupActivity">
+        android:usesCleartextTraffic="true"
+        android:name=".Studentid"
+        >
+        <activity android:name=".SportlistActivity">
         </activity>
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".SportlistActivity"
+        <activity android:name=".SignupActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

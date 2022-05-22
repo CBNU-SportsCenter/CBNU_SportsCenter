@@ -91,5 +91,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         else
             return false;
     }
+    public String swimmember(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?", //해당 studentid에 대한 행을 가져온다.
+                new String[] {studentid});
+        cursor.moveToFirst(); //첫번째 행을 가리킨다.-->id가 중복되게 만들지 않아서 행은 하나만 나온다.
+        System.out.println(cursor.getString(5));
+        return cursor.getString(5); //입력 id에 대한 신청 종목 string을 리턴한다.
+    }
 
 }
