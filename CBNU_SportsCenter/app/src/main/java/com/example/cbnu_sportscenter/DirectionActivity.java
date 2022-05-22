@@ -1,13 +1,19 @@
 package com.example.cbnu_sportscenter;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.gms.common.GoogleApiAvailabilityLight;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -20,18 +26,20 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class DirectionActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class DirectionActivity extends Fragment implements OnMapReadyCallback {
 
     GoogleMap gMap;
     MapFragment mapFrag;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_direction);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_direction, container, false);
 
-        mapFrag= (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        mapFrag= (MapFragment) getActivity().getFragmentManager().findFragmentById(R.id.map);
         mapFrag.getMapAsync(this);
+
+        return view;
     }
 
     @Override

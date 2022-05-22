@@ -20,7 +20,10 @@ public class IntroductionActivity extends Fragment {
 
     TextView toIntroduction,toFacilities,toDirection;
     ViewFlipper viewFlipper;
+
+    //Fragment
     IntroductionActivity2 introductionActivity2;
+    DirectionActivity directionActivity;
 
     @Nullable
     @Override
@@ -33,7 +36,9 @@ public class IntroductionActivity extends Fragment {
 
         viewFlipper = view.findViewById(R.id.viewFlipper);
 
+        //Framgnet
         introductionActivity2=new IntroductionActivity2();
+        directionActivity=new DirectionActivity();
 
         toIntroduction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,8 +59,9 @@ public class IntroductionActivity extends Fragment {
         toDirection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity().getApplicationContext(),DirectionActivity.class);
-                startActivity(intent);
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout,directionActivity).commit();
             }
         });
 
