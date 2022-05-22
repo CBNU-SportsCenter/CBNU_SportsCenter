@@ -16,9 +16,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/wangicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/wangicon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CBNU_SportsCenter"
         android:usesCleartextTraffic="true">
@@ -39,27 +39,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UserCertificate"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".IntroductionActivity"
-            android:exported="true" />
-        <activity
-            android:name=".IntroductionActivity2"
-            android:exported="true" />
-        <activity
             android:name=".LoginActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            </activity>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity android:name=".MainPageActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
