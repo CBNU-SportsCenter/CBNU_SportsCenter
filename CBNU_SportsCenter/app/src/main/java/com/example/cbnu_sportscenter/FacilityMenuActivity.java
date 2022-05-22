@@ -5,55 +5,58 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class FacilityMenuActivity extends AppCompatActivity {
 
-    Button floor0, floor1, floor2, floor3, floor4;
+    TextView toFloor0, toFloor1, toFloor2, toFloor3, toFloor4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facility_menu);
 
-        floor0 = findViewById(R.id.floor0);
-        floor1 = findViewById(R.id.floor1);
-        floor2 = findViewById(R.id.floor2);
-        floor3 = findViewById(R.id.floor3);
-        floor4 = findViewById(R.id.floor4);
+        toFloor0 = findViewById(R.id.toFloor0);
+        toFloor1 = findViewById(R.id.toFloor1);
+        toFloor2 = findViewById(R.id.toFloor2);
+        toFloor3 = findViewById(R.id.toFloor3);
+        toFloor4 = findViewById(R.id.toFloor4);
 
-        floor0.setOnClickListener(new View.OnClickListener() {
+        toFloor0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
 
-        floor1.setOnClickListener(new View.OnClickListener() {
+        toFloor1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
 
-        floor2.setOnClickListener(new View.OnClickListener() {
+        toFloor2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
 
-        floor3.setOnClickListener(new View.OnClickListener() {
+        toFloor3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
 
-        floor4.setOnClickListener(new View.OnClickListener() {
+        toFloor4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
+
+
     }
 }

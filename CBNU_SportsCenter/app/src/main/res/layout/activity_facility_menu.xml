@@ -7,37 +7,115 @@
     android:orientation="vertical"
     tools:context=".FacilityMenuActivity">
 
-    <Button
-        android:id="@+id/floor0"
+    <LinearLayout
+        android:layout_marginTop="24sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="지하 1층" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/floor1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="지상 1층" />
+        <ImageView
+            android:id="@+id/logoView1"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
 
-    <Button
-        android:id="@+id/floor2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="지상 2층" />
+        <TextView
+            android:id="@+id/toFloor0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:layout_marginBottom="24dp"
+            android:text="지하 1층"
+            android:textSize="24sp" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/floor3"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="지상 3층" />
-    <Button
-        android:id="@+id/floor4"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoView2"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toFloor1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:layout_marginBottom="24dp"
+            android:text="지상 1층"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="지상 4층" />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoView3"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toFloor2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:layout_marginBottom="24dp"
+            android:text="지상 2층"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoView4"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toFloor3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:layout_marginBottom="24dp"
+            android:text="지상 3층"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoView5"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toFloor4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:layout_marginBottom="24dp"
+            android:text="지상 4층"
+            android:textSize="24sp" />
+    </LinearLayout>
+
 </LinearLayout>
