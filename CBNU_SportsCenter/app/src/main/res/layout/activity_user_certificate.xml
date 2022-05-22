@@ -66,6 +66,28 @@
                         android:textAlignment="center"
                         android:textSize="24sp" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <Button
+                            android:id="@+id/enter"
+                            android:layout_marginLeft="24sp"
+                            android:layout_width="70dp"
+                            android:layout_height="40dp"
+                            android:text="입장" />
+
+                        <Button
+                            android:id="@+id/exit"
+                            android:layout_marginLeft="12sp"
+                            android:layout_width="70dp"
+                            android:layout_height="40dp"
+                            android:text="퇴장" />
+                    </LinearLayout>
+
+
+
+
                 </LinearLayout>
 
             </LinearLayout>

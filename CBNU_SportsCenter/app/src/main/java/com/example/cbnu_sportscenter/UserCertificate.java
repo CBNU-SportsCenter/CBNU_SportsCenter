@@ -10,6 +10,7 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class UserCertificate extends Fragment {
     BackGroundThread backgroundThread;
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
     ImageView profileImage, reNew, qrCode;
+    Button enter, exit;
 
 
     int[] images = new int[]{R.drawable.qrex1,R.drawable.qrex2,R.drawable.qrex3,R.drawable.qrex4,
@@ -62,7 +64,25 @@ public class UserCertificate extends Fragment {
         reNew = (ImageView)view.findViewById(R.id.reNew);
         qrCode = (ImageView)view.findViewById(R.id.qrCode);
         qrCode.setBackgroundResource(images[imageId]);
+
+        enter = (Button)view.findViewById(R.id.enter);
+        exit = (Button)view.findViewById(R.id.exit);
         Bundle bundle=getArguments();
+
+        enter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
 
         if(bundle!=null){
             userName.setText(bundle.getString("name"));
