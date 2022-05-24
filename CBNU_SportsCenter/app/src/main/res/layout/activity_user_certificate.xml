@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UserCertificateFragment">
+    tools:context=".UserCertificate"
+    android:id="@+id/minsung">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -65,11 +66,27 @@
                         android:textAlignment="center"
                         android:textSize="24sp" />
 
-                    <Button
-                        android:id="@+id/testbtn"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Button" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <Button
+                            android:id="@+id/enter"
+                            android:layout_marginLeft="24sp"
+                            android:layout_width="70dp"
+                            android:layout_height="40dp"
+                            android:text="입장" />
+
+                        <Button
+                            android:id="@+id/exit"
+                            android:layout_marginLeft="12sp"
+                            android:layout_width="70dp"
+                            android:layout_height="40dp"
+                            android:text="퇴장" />
+                    </LinearLayout>
+
+
+
 
                 </LinearLayout>
 
@@ -106,7 +123,7 @@
         android:id="@+id/qrCode"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:layout_gravity="center" />
 
     <TextView
@@ -122,7 +139,7 @@
     <TextView
         android:layout_gravity="center"
         android:id="@+id/university"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:textSize="24sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

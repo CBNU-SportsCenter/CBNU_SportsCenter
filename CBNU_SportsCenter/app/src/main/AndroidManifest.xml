@@ -2,22 +2,36 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cbnu_sportscenter">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:required="true" android:glEsVersion="0x00020000"/>
+    <permission android:name="com.example.cbnu_sportscenter.permission.MAPS_RECEIVE"
+        android:label="signature"></permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <meta-data android:name= "com.google.android.gms.version"
+        android:value = "@integer/google_play_services_version"/>
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/wangicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/wangicon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CBNU_SportsCenter"
-        android:usesCleartextTraffic="true"
         android:name=".Studentid"
-        >
-        <activity android:name=".SportlistActivity">
-        </activity>
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".StartActivity"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".DirectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FacilityMenuActivity"
+            android:exported="false" />
+        <activity android:name=".SignupActivity" />
+        <activity
+            android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,9 +39,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-            <activity
-                android:name=".LoginActivity"
-                android:exported="true"/>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".MainPageActivity"/>
         <activity android:name=".SignupActivity"/>
         <meta-data
@@ -36,7 +52,14 @@
         <activity android:name=".SwimActivity" android:label="수영"/>
         <activity android:name=".WeightActivity" android:label="헬스"/>
         <activity android:name=".SquashActivity" android:label="스쿼시"/>
+        <activity android:name=".SportlistActivity"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBJemJSIq1Ng-zx6bpdMfCQWd-OwRD7uUA"/>
+    </application>
+
 </manifest>
