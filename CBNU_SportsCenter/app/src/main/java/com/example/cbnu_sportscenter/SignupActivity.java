@@ -72,6 +72,7 @@ public class SignupActivity extends AppCompatActivity {
                 String name=Name.getEditText().getText().toString().trim();
                 String major=Major.getEditText().getText().toString().trim();
                 String program=Spn.getSelectedItem().toString();
+                String enter="false";
 
                 if(studentid.equals("") || password1.equals("") || password2.equals("") ||
                         name.equals("") || major.equals("") )
@@ -82,7 +83,7 @@ public class SignupActivity extends AppCompatActivity {
                         if(checkstudentid==false){
                            /* MyDatabaseHelper myDB=new MyDatabaseHelper(SignupActivity.this);
                             myDB.AddAccount(studentid,password1, name, major, phone, email);*/
-                        long result=DB.addAccount(studentid,password1, name, major, program);
+                        long result=DB.addAccount(studentid,password1, name, major, program,enter);
                         if(result!=-1)
                         {
                             Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
