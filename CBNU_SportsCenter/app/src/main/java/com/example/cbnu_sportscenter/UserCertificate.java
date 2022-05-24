@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
+import java.util.Set;
 import java.util.TimeZone;
 
 
@@ -33,7 +34,8 @@ public class UserCertificate extends Fragment {
     BackGroundThread backgroundThread;
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
     ImageView profileImage, reNew, qrCode;
-
+    String studentid,name,major;
+    Bundle bundle;  //정보 전달받는 객체
 
     int[] images = new int[]{R.drawable.qrex1,R.drawable.qrex2,R.drawable.qrex3,R.drawable.qrex4,
             R.drawable.qrex5,R.drawable.qrex6,R.drawable.qrex7,R.drawable.qrex8,R.drawable.qrex9,R.drawable.qrex10};
@@ -62,15 +64,24 @@ public class UserCertificate extends Fragment {
         reNew = (ImageView)view.findViewById(R.id.reNew);
         qrCode = (ImageView)view.findViewById(R.id.qrCode);
         qrCode.setBackgroundResource(images[imageId]);
-        Bundle bundle=getArguments();
 
-        if(bundle!=null){
-            userName.setText(bundle.getString("name"));
-            studentCode.setText(bundle.getString("studentid"));
-            userMajor.setText(bundle.getString("major"));
+
+        /****** 유저이름, 학번, 학과 정보 적용하는부분*******/
+
+        bundle=getArguments();
+        Set<String> keys = bundle.keySet();
+
+
+        if(keys.size()>0){  //정보가 정상적으로 전달되었을때
+            setUserinfo();
         }
 
 
+        else{       //정보가 정상적으로 전달되지 않았을때
+            Toast.makeText(container.getContext(), "bundle count null", Toast.LENGTH_SHORT).show();
+        }
+
+        /****** 여기까지 *******/
 
 
 
@@ -231,6 +242,18 @@ public class UserCertificate extends Fragment {
                 timeHandler.sendMessage(timeHandler .obtainMessage());
             }
         }
+    }
+
+    public void setUserinfo(){
+        studentid=bundle.getString("studentid");
+        MyDatabaseHelper dbHelper=new MyDatabaseHelper(getActivity().getApplicationContext());
+        name=dbHelper.getName(studentid);
+        major=dbHelper.getMajor(studentid);
+
+
+        studentCode.setText(studentid);
+        userName.setText(name);
+        userMajor.setText(major);
     }
 
 
