@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cbnu_sportscenter">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -25,11 +26,11 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".DirectionActivity"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".FacilityMenuActivity"
             android:exported="false" />
-        <activity android:name=".SignupActivity" />
         <activity
             android:name=".StartActivity"
             android:exported="true">
@@ -39,10 +40,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-            </activity>
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".MainPageActivity"/>
         <activity android:name=".SignupActivity"/>
@@ -60,6 +58,4 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBJemJSIq1Ng-zx6bpdMfCQWd-OwRD7uUA"/>
-    </application>
-
-</manifest>
+    </manifest>

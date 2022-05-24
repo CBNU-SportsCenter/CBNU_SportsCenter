@@ -174,7 +174,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cursor.moveToFirst(); //첫번째 행을 가리킨다.-->id가 중복되게 만들지 않아서 행은 하나만 나온다.
         return cursor.getString(2); //swim에 대한 string을 저장
     }
-    public String Healtheuser(String Title) {
+    public String Weighteuser(String Title) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from USERDATABASE where Title = ?", new String[]{Title});
         cursor.moveToFirst(); //첫번째 행을 가리킨다.-->id가 중복되게 만들지 않아서 행은 하나만 나온다.
@@ -196,7 +196,31 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_SWIM,(num).toString());
         //update
         int result=db.update(tableName,cv,"Title= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
-        System.out.println("업데이트 성공! : "+num);
+        System.out.println("수영업데이트 성공! : "+num);
+    }
+    public void UpdateWeigther(String tableName,String name,Integer num)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        System.out.println("헬스인원 "+num);
+        ContentValues cv=new ContentValues();
+        String nameArr[]={name};
+        num++;
+        cv.put(COLUMN_HEALTH,(num).toString());
+        //update
+        int result=db.update(tableName,cv,"Title= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
+        System.out.println("헬스업데이트 성공! : "+num);
+    }
+    public void UpdateSquasher(String tableName,String name,Integer num)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        System.out.println("스쿼시인원 "+num);
+        ContentValues cv=new ContentValues();
+        String nameArr[]={name};
+        num++;
+        cv.put(COLUMN_SQUASH,(num).toString());
+        //update
+        int result=db.update(tableName,cv,"Title= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
+        System.out.println("스쿼시업데이트 성공! : "+num);
     }
     public String getName(String studentid){
         SQLiteDatabase MyDB = this.getWritableDatabase();

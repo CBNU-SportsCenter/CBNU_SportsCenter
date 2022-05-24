@@ -92,15 +92,15 @@ public class LoginActivity extends AppCompatActivity {
 
 
                             startActivity(intent);
-                        } else {
+                        }
+                        else
+                        {
                             Toast.makeText(LoginActivity.this, "cursor count 0", Toast.LENGTH_SHORT).show();
                         }
                         Toast.makeText(LoginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
-                        ( (Studentid)getApplication()).setData(studentid); //해당 아이디로 들어왔을때 아이디를 유지하기위해 선언
-                        //System.out.println(( (Studentid)getApplication()).getData()); //아이디 값이 잘 넘어오는것을 확인
-                        Intent intent  = new Intent(getApplicationContext(), MainPageActivity.class);
-                        startActivity(intent);
-                    }else{
+                        ((Studentid)getApplication()).setData(studentid); //해당 아이디로 들어왔을때 아이디를 유지하기위해 선언
+                    }
+                    else{
                         Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     }
                 }

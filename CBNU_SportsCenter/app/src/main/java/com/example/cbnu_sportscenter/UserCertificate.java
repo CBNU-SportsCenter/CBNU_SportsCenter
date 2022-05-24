@@ -35,11 +35,10 @@ public class UserCertificate extends Fragment{
     BackGroundThread backgroundThread;
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
     ImageView profileImage, reNew, qrCode;
-    Button testbtn;
     String intersport;
     MyDatabaseHelper DB;
-    String strswim;
-    Integer swimnum;
+    String strswim,strweight,strsquash;
+    Integer swimnum,weightnum,squashnum;
     String studentid, name, major;
     Bundle bundle;  //정보 전달받는 객체
     Button enter, exit;
@@ -145,7 +144,7 @@ public class UserCertificate extends Fragment{
         handler.postDelayed(r, 0);
 
 
-        //테스트 버튼
+        //등록이벤트발생
         enter=(Button)view.findViewById(R.id.enter);
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,13 +156,17 @@ public class UserCertificate extends Fragment{
                     swimnum=Integer.parseInt(strswim);
                     DB.UpdateSwimer("USERDATABASE","등록조회",swimnum);
                 }
-                else if(intersport=="헬스")
+                else if(intersport.equals("헬스"))
                 {
-
+                    strweight=DB.Weighteuser("등록조회");
+                    weightnum=Integer.parseInt(strweight);
+                    DB.UpdateWeigther("USERDATABASE","등록조회",weightnum);
                 }
-                else if(intersport=="스쿼시")
+                else if(intersport.equals("스쿼시"))
                 {
-
+                    strsquash=DB.Squasheuser("등록조회");
+                    squashnum=Integer.parseInt(strsquash);
+                    DB.UpdateSquasher("USERDATABASE","등록조회",squashnum);
                 }
             }
         });
