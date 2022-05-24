@@ -73,13 +73,14 @@ public class MypageFragment extends Fragment {
 
         //샘플 데이터
         ArrayList<BarEntry> visitors = new ArrayList<>();
-        visitors.add(new BarEntry(2014, 420));
-        visitors.add(new BarEntry(2015, 450));
-        visitors.add(new BarEntry(2016, 520));
-        visitors.add(new BarEntry(2017, 620));
-        visitors.add(new BarEntry(2018, 540));
-        visitors.add(new BarEntry(2019, 720));
-        visitors.add(new BarEntry(2020, 920));
+
+        visitors.add(new BarEntry(20, 60));
+        visitors.add(new BarEntry(21, 90));
+        visitors.add(new BarEntry(22, 80));
+        visitors.add(new BarEntry(23, 40));
+        visitors.add(new BarEntry(24, 10));
+
+
 
         BarDataSet barDataSet = new BarDataSet(visitors, "hello");
         barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);

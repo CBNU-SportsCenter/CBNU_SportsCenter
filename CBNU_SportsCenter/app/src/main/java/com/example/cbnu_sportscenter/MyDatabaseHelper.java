@@ -25,6 +25,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PROGRAM="program";
     private static final String COLUMN_ENTER="enter";
 
+    private static final String TABLE_NAME2="ExerciseTime";
+    private static final String COLUMN_ID2="id";
+    private static final String COLUMN_STUDENTID2="studentid";
+    private static final String COLUMN_YEAR="year";
+    private static final String COLUMN_MONTH="month";
+    private static final String COLUMN_DAY="day";
+    private static final String COLUMN_TIME="time";
 
 
 
@@ -32,6 +39,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context=context;
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -42,12 +50,23 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_MAJOR+" TEXT, "+
                 COLUMN_PROGRAM+" TEXT, "+
                 COLUMN_ENTER+" TEXT);";
+
+        String query2="CREATE TABLE "+TABLE_NAME2+" ("+COLUMN_ID2+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                COLUMN_STUDENTID2+" TEXT, "+
+                COLUMN_YEAR+" TEXT, "+
+                COLUMN_MONTH+" TEXT, "+
+                COLUMN_DAY+" TEXT, "+
+                COLUMN_TIME+" TEXT);";
+
+
+        db.execSQL(query2);
         db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL(" DROP TABLE IF EXISTS "+TABLE_NAME);
+        db.execSQL(" DROP TABLE IF EXISTS "+TABLE_NAME2);
         onCreate(db);
     }
 
@@ -56,6 +75,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        ContentValues cv2 = new ContentValues();
 
         cv.put(COLUMN_STUDENTID, studentid);
         cv.put(COLUMN_PASSWORD, password);
@@ -63,6 +83,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_MAJOR, major);
         cv.put(COLUMN_PROGRAM, program);
         cv.put(COLUMN_ENTER, enter);
+
+
+
+
 
 
         long result = db.insert(TABLE_NAME,null, cv);
