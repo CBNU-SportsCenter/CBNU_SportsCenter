@@ -75,7 +75,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        ContentValues cv2 = new ContentValues();
+
 
         cv.put(COLUMN_STUDENTID, studentid);
         cv.put(COLUMN_PASSWORD, password);
@@ -90,6 +90,32 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
 
         long result = db.insert(TABLE_NAME,null, cv);
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+            return result;
+        }else {
+            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+            return result;
+        }
+    }
+
+    long addExerciseTime(String studentid, String year, String month,String day, String time)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_STUDENTID2, studentid);
+        cv.put(COLUMN_YEAR, year);
+        cv.put(COLUMN_MONTH, month);
+        cv.put(COLUMN_DAY, day);
+        cv.put(COLUMN_TIME, time);
+
+
+
+
+
+
+        long result = db.insert(TABLE_NAME2,null, cv);
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
             return result;
