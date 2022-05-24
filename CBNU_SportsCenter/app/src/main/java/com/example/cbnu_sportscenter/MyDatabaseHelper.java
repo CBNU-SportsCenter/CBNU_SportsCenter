@@ -236,4 +236,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+
+
+    public Cursor getExerciseInfo(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from ExerciseTime where studentid = ?",new String[] {studentid});
+
+
+            return cursor;
+
+
+    }
+
 }
