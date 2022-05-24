@@ -23,6 +23,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_NAME="name";
     private static final String COLUMN_MAJOR="major";
     private static final String COLUMN_PROGRAM="program";
+    private static final String COLUMN_ENTER="enter";
 
 
 
@@ -39,7 +40,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_PASSWORD+" TEXT, "+
                 COLUMN_NAME+" TEXT, "+
                 COLUMN_MAJOR+" TEXT, "+
-                COLUMN_PROGRAM+" TEXT);";
+                COLUMN_PROGRAM+" TEXT, "+
+                COLUMN_ENTER+" TEXT);";
         db.execSQL(query);
     }
 
@@ -49,7 +51,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    long AddAccount(String studentid, String password, String name,String major, String program
+    long addAccount(String studentid, String password, String name,String major, String program
+                    ,String enter
                 ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -59,6 +62,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_NAME, name);
         cv.put(COLUMN_MAJOR, major);
         cv.put(COLUMN_PROGRAM, program);
+        cv.put(COLUMN_ENTER, enter);
 
 
         long result = db.insert(TABLE_NAME,null, cv);
@@ -69,6 +73,27 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
             return result;
         }
+    }
+
+
+    long updateAccount(String studentid, String password, String name, String major, String program){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_STUDENTID, studentid);
+        cv.put(COLUMN_PASSWORD, password);
+        cv.put(COLUMN_NAME, name);
+        cv.put(COLUMN_MAJOR, major);
+        cv.put(COLUMN_PROGRAM, program);
+
+        long result = db.update(TABLE_NAME, cv, "studentid=?", new String[]{studentid});
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+            return result;
+        }else {
+            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+            return result;
+        }
+
     }
 
 
@@ -89,6 +114,76 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    public String getName(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?",new String[] {studentid});
+
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            return cursor.getString(3);
+        }
+
+        else{
+            return "error";
+        }
+    }
+
+    public String getMajor(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?",new String[] {studentid});
+
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            return cursor.getString(4);
+        }
+
+        else{
+            return "error";
+        }
+    }
+
+    public String getProgram(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?",new String[] {studentid});
+
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            return cursor.getString(5);
+        }
+
+        else{
+            return "error";
+        }
+    }
+    public String getPassword(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?",new String[] {studentid});
+
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            return cursor.getString(2);
+        }
+
+        else{
+            return "error";
+        }
+    }
+
+
+    public String getEnter(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?",new String[] {studentid});
+
+        if(cursor.getCount()>0) {
+            cursor.moveToFirst();
+            return cursor.getString(6);
+        }
+
+        else{
+            return "error";
+        }
     }
 
 }

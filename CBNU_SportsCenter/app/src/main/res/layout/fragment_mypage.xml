@@ -77,16 +77,16 @@
 
     <TextView
         android:layout_marginTop="30dp"
-        android:id="@+id/textView19"
+        android:id="@+id/userProgram"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="110dp"
-        android:text="프로그램 : 수영"
+        android:text="프로그램 : 헬스"
         android:textSize="25dp" />
 
     <Button
         android:layout_marginTop="10dp"
-        android:id="@+id/button4"
+        android:id="@+id/btn_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원정보수정" />

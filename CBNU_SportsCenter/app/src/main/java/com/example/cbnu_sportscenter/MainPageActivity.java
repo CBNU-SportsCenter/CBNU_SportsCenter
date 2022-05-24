@@ -28,8 +28,9 @@ public class MainPageActivity extends AppCompatActivity {
     NavigationView navigationView;
     Button cert,usage,intro,notice;
     Intent intent;  //MainPageActivity 인텐트
-    String studentid,name,major,program;     //로그인할때 넘겨받은 유저아이디
-
+    Bundle bundle;
+    String studentid,password,name,major,program;     //로그인할때 넘겨받은 유저아이디
+    int id;
     //프래그먼트 정의
     UserCertificate userCertificate;
     MypageFragment mypageFragment;
@@ -39,11 +40,17 @@ public class MainPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //로그인 시 넘겨받은 정보 받기
-        intent=getIntent();
-        studentid=intent.getStringExtra("studentid");
-        name=intent.getStringExtra("name");
-        major=intent.getStringExtra("major");
-        program=intent.getStringExtra("program");
+        getInfo(intent);
+
+        //프래그먼트 이동시 정보 전달하기위한 bundle생성
+        bundle=new Bundle();
+        createBundle(bundle);
+
+
+        //프래그먼트 객체 생성
+        userCertificate=new UserCertificate();
+        mypageFragment=new MypageFragment();
+
 
 
         //툴바
@@ -68,6 +75,7 @@ public class MainPageActivity extends AppCompatActivity {
                 String title = menuItem.getTitle().toString();
 
                 if(id == R.id.menu1){
+                    userCertificate.setArguments(bundle);
                     replaceFragment(userCertificate);
                     getSupportActionBar().setTitle("이용증");
                 }
@@ -82,23 +90,22 @@ public class MainPageActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
                 }
                 else if(id == R.id.menu5){
+                    mypageFragment.setArguments(bundle);
                     replaceFragment(mypageFragment);
                     }
                 return true;
             }
         });
 
+
         userCertificate=new UserCertificate();
         mypageFragment=new MypageFragment();
         introductionActivity=new IntroductionActivity();
 
-        Bundle bundle=new Bundle();
-        bundle.putString("studentid", studentid);
-        bundle.putString("name", name);
-        bundle.putString("major", major);
-        bundle.putString("program", program);
-        bundle.putString("studentid", studentid);
-        userCertificate.setArguments(bundle);
+
+
+
+
 
         //프레그먼트 이동 버튼
         cert=(Button)findViewById(R.id.Cert);
@@ -106,12 +113,13 @@ public class MainPageActivity extends AppCompatActivity {
         intro=(Button)findViewById(R.id.Intr);
         notice=(Button)findViewById(R.id.Noti);
 
-
+        userCertificate.setArguments(bundle);
         replaceFragment(userCertificate);
 
         cert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                userCertificate.setArguments(bundle);
                 replaceFragment(userCertificate);
             }
         });
@@ -140,12 +148,19 @@ public class MainPageActivity extends AppCompatActivity {
 
     //프레그먼트 교체
     public void replaceFragment(Fragment fragment){
+
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         //첫화면 프래그먼트 지정
         fragmentTransaction.replace(R.id.frameLayout,fragment).commit();
         //fragmentTransaction.replace(R.id.frameLayout,mypageFragment).commit();
+
+
+//        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
+
+
     }
+
     @Override //메뉴설정
     public boolean onCreateOptionsMenu(Menu menu) { 
         //return super.onCreateOptionsMenu(menu);
@@ -164,6 +179,7 @@ public class MainPageActivity extends AppCompatActivity {
 
             case R.id.mypage:
                 // User chose the "Settings" item, show the app settings UI...
+                mypageFragment.setArguments(bundle);
                 replaceFragment(mypageFragment);
                 return true;
 
@@ -182,6 +198,20 @@ public class MainPageActivity extends AppCompatActivity {
         else {
             super.onBackPressed();
         }
+    }
+
+    public void getInfo(Intent intent){
+        intent=getIntent();
+        studentid=intent.getStringExtra("studentid");
+      /*  password=intent.getStringExtra("password");
+        name=intent.getStringExtra("name");
+        major=intent.getStringExtra("major");
+        program=intent.getStringExtra("program");
+        Toast.makeText(getApplicationContext(), "userid"+id, Toast.LENGTH_SHORT).show();*/
+    }
+
+    public void createBundle(Bundle bundle){
+        bundle.putString("studentid", studentid);
     }
 
 

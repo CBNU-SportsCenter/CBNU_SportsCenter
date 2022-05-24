@@ -74,13 +74,19 @@ public class LoginActivity extends AppCompatActivity {
                                 cursor.moveToFirst();
 
 
-                                intent.putExtra("studentid", cursor.getString(1));
-                                intent.putExtra("name", cursor.getString(3));
-                                intent.putExtra("major", cursor.getString(4));
-                                intent.putExtra("program", cursor.getString(5));
+                                //intent.putExtra("id",cursor.getInt(0));
+                                intent.putExtra("studentid",cursor.getString(1));
+                              /*  intent.putExtra("password",cursor.getString(2));
+                                intent.putExtra("name",cursor.getString(3));
+                                intent.putExtra("major",cursor.getString(4));
+                                intent.putExtra("program",cursor.getString(5));
+
+                            */
 
 
-                            } else {
+                            }
+                           else {
+
                                 Toast.makeText(LoginActivity.this, "LoginPageActivity cursor 0", Toast.LENGTH_SHORT).show();
                             }
 
