@@ -19,12 +19,12 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="158dp"
-                android:layout_height="84dp"
-                app:srcCompat="@drawable/logo2" />
+                android:layout_width="154dp"
+                android:layout_height="103dp"
+                app:srcCompat="@drawable/wang2" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/mainText1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="40sp"
@@ -33,7 +33,7 @@
                 android:text="안녕하세요" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/toDirection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="앱을 사용하기 위한 계정을 생성해보세요" />

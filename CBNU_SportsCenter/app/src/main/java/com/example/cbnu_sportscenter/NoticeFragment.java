@@ -10,47 +10,55 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 
 
 public class NoticeFragment extends Fragment {
-    cbnuNotice cbnuNotice;
-    gymNotice gymNotice;
-    Button btncbnu,btngym;
+    Button btncbnu, btngym,btnLife;
+    WebView webView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_notice, container, false);
-        btncbnu=(Button) view.findViewById(R.id.btnCbnu);
-        btngym=(Button) view.findViewById(R.id.btnGym);
+        View view = inflater.inflate(R.layout.fragment_notice, container, false);
+        btncbnu = (Button) view.findViewById(R.id.btnCbnu);
+        btngym = (Button) view.findViewById(R.id.btnGym);
+        btnLife=(Button)view.findViewById(R.id.btnLife);
+        //webView
+        webView = (WebView) view.findViewById(R.id.wView);
 
-        //프레그먼트
-        cbnuNotice=new cbnuNotice();
-        gymNotice=new gymNotice();
+        webView.setWebViewClient(new WebViewClient());  // 새 창 띄우기 않기
+        webView.getSettings().setJavaScriptEnabled(true); // 자바스크립트 사용여부
+        webView.getSettings().setTextZoom(50);
+        webView.loadUrl("https://sports.chungbuk.ac.kr/master.php?pg_idx=145&spg_idx=185");
+
 
         btncbnu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                replaceFragment(cbnuNotice);
+                //webview
+                webView.loadUrl("https://sports.chungbuk.ac.kr/master.php?pg_idx=145&spg_idx=185");
             }
         });
         btngym.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                replaceFragment(gymNotice);
+                //webview
+                webView.loadUrl("https://sports.chungbuk.ac.kr/master.php?pg_idx=145&spg_idx=184");
+            }
+        });
+        btnLife.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //webview
+                webView.loadUrl("https://sports.chungbuk.ac.kr/master.php?pg_idx=145&spg_idx=186");
             }
         });
 
         return view;
-    }
-    //프레그먼트 교체
-    public void replaceFragment(Fragment fragment){
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        //화면변경
-        fragmentTransaction.replace(R.id.NoticeframeLayout,fragment).commit();
     }
 }
 
