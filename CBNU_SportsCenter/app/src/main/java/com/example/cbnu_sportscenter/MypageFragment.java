@@ -1,5 +1,9 @@
 package com.example.cbnu_sportscenter;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -27,7 +31,7 @@ import java.util.Set;
 public class MypageFragment extends Fragment {
 
     TextView userprogram;
-    Button btn_update;
+    Button btn_update,btn_logout;
     UpdateFragment updatefragment;
     String studentid,program;
     Bundle bundle;
@@ -41,6 +45,7 @@ public class MypageFragment extends Fragment {
 
         userprogram=view.findViewById(R.id.userProgram);
         btn_update=view.findViewById(R.id.btn_update);
+        btn_logout=view.findViewById(R.id.btn_logout);
         updatefragment=new UpdateFragment();
 
 
@@ -100,7 +105,24 @@ public class MypageFragment extends Fragment {
             }
         });
 
+       btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                restart(getActivity());
+            }
+        });
+
 
         return view;
     }
+
+    private void restart(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        Intent intent = packageManager.getLaunchIntentForPackage(context.getPackageName());
+        ComponentName componentName = intent.getComponent();
+        Intent mainIntent = Intent.makeRestartActivityTask(componentName);
+        context.startActivity(mainIntent);
+        Runtime.getRuntime().exit(0);
+    }
+
 }
