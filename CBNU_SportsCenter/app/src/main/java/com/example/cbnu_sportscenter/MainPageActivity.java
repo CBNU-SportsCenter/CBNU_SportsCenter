@@ -34,6 +34,7 @@ public class MainPageActivity extends AppCompatActivity {
     //프래그먼트 정의
     UserCertificate userCertificate;
     MypageFragment mypageFragment;
+    IntroductionActivity introductionActivity;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -49,6 +50,7 @@ public class MainPageActivity extends AppCompatActivity {
         //프래그먼트 객체 생성
         userCertificate=new UserCertificate();
         mypageFragment=new MypageFragment();
+
 
 
         //툴바
@@ -81,7 +83,8 @@ public class MainPageActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
                 }
                 else if(id == R.id.menu3){
-                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                    replaceFragment(introductionActivity);
+                    getSupportActionBar().setTitle("소개");
                 }
                 else if(id == R.id.menu4){
                     Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
@@ -89,11 +92,15 @@ public class MainPageActivity extends AppCompatActivity {
                 else if(id == R.id.menu5){
                     mypageFragment.setArguments(bundle);
                     replaceFragment(mypageFragment);
-                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
-                }
+                    }
                 return true;
             }
         });
+
+
+        userCertificate=new UserCertificate();
+        mypageFragment=new MypageFragment();
+        introductionActivity=new IntroductionActivity();
 
 
 
@@ -112,7 +119,6 @@ public class MainPageActivity extends AppCompatActivity {
         cert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "이용증", Toast.LENGTH_SHORT).show();
                 userCertificate.setArguments(bundle);
                 replaceFragment(userCertificate);
             }
@@ -128,7 +134,7 @@ public class MainPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //fragmentTransaction.replace(R.id.frameLayout,userCertificate).commit();
-                Toast.makeText(getApplicationContext(), "소개", Toast.LENGTH_SHORT).show();
+                replaceFragment(introductionActivity);
             }
         });
         notice.setOnClickListener(new View.OnClickListener() {
