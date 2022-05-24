@@ -7,6 +7,7 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,11 +25,16 @@ import java.util.Random;
 import java.util.TimeZone;
 
 
-public class UserCertificate extends Fragment {
+public class UserCertificate extends Fragment{
 
     BackGroundThread backgroundThread;
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
     ImageView profileImage, reNew, qrCode;
+    Button testbtn;
+    String intersport;
+    MyDatabaseHelper DB;
+    String strswim;
+    Integer swimnum;
 
 
     int[] images = new int[]{R.drawable.qrex1,R.drawable.qrex2,R.drawable.qrex3,R.drawable.qrex4,
@@ -40,24 +46,22 @@ public class UserCertificate extends Fragment {
     private CountDownTimer mCountDownTimer;
     Random random = new Random();
     int imageId = 1;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view=inflater.inflate(R.layout.activity_user_certificate,container,false);
-
         userMajor = view.findViewById(R.id.userMajor);
         studentCode = view.findViewById(R.id.studentCode);
         userName = view.findViewById(R.id.userName);
         currentTime = view.findViewById(R.id.currentTime);
         university = view.findViewById(R.id.university);
         remainTime = view.findViewById(R.id.remainTime);
-
         profileImage = (ImageView)view.findViewById(R.id.profileImage);
         reNew = (ImageView)view.findViewById(R.id.reNew);
         qrCode = (ImageView)view.findViewById(R.id.qrCode);
         qrCode.setBackgroundResource(images[imageId]);
+        DB = new MyDatabaseHelper(getContext());
 
         Handler handler = new Handler();
 
@@ -77,7 +81,6 @@ public class UserCertificate extends Fragment {
                     public void onTick(long l) {
                         remainTime.setText(String.format(Locale.getDefault(),"%d 초",(Math.round((double)l /Timer_Interval)-1)));  //시간 오류 해결
                     }
-
                     @Override
                     public void onFinish() {   //종료된다면
                         int newimageId = random.nextInt(images.length);
@@ -95,10 +98,32 @@ public class UserCertificate extends Fragment {
 
         handler.postDelayed(r,0);
 
+
+        //테스트 버튼
+        testbtn=(Button)view.findViewById(R.id.testbtn);
+        testbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intersport=DB.SportCenterUsage(((Studentid)getActivity().getApplication()).getData());
+                if(intersport.equals("수영"))
+                {
+                    strswim=DB.Swimeuser("등록조회"); //현재 수영인원 반환
+                    swimnum=Integer.parseInt(strswim);
+                    DB.UpdateSwimer("USERDATABASE","등록조회",swimnum);
+                }
+                else if(intersport=="헬스")
+                {
+
+                }
+                else if(intersport=="스쿼시")
+                {
+
+                }
+            }
+        });
         reNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if(handler!=null) {  //만약 handler 있다면 취소
                     handler.removeCallbacksAndMessages(null);
                     mCountDownTimer.cancel();

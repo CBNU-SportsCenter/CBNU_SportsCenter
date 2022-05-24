@@ -2,6 +2,7 @@ package com.example.cbnu_sportscenter;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,19 +17,21 @@ public class SwimActivity extends AppCompatActivity {
     Button swimbutton;
     String str1;
     Integer num;
+    MyDatabaseHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swim);
+        DB = new MyDatabaseHelper(this);
         setTitle("수 영");
         swimperson=(TextView)findViewById(R.id.swimperson);
         swimletter=(TextView)findViewById(R.id.swimletter);
         ImageView imageView = (ImageView)findViewById(R.id.imageView);
         Glide.with(this).load(R.raw.swimmer).circleCrop().into(imageView);
-
-        str1=swimperson.getText().toString();
+        str1=DB.Swimeuser("등록조회");
         num=Integer.parseInt(str1);
+        swimperson.setText(num.toString());
         if(num<20)
         {
             swimletter.setText("혼잡도 : 원활");

@@ -90,6 +90,8 @@ public class MainPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //fragmentTransaction.replace(R.id.frameLayout,userCertificate).commit();
+                Intent intent = new Intent(getApplicationContext(), SportlistActivity.class);
+                startActivity(intent);
                 Toast.makeText(getApplicationContext(), "이용조회", Toast.LENGTH_SHORT).show();
 
 
