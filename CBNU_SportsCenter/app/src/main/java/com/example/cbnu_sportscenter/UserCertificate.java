@@ -39,7 +39,6 @@ public class UserCertificate extends Fragment{
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
     ImageView profileImage, reNew, qrCode;
     String intersport;
-    MyDatabaseHelper DB;
     String strswim,strweight,strsquash;
     Integer swimnum,weightnum,squashnum;
     String studentid, name, major;
@@ -109,7 +108,7 @@ public class UserCertificate extends Fragment{
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    startButton();
+               // startButton();
             }
         });
 
@@ -171,6 +170,7 @@ public class UserCertificate extends Fragment{
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startButton();
                 intersport=DB.SportCenterUsage(((Studentid)getActivity().getApplication()).getData());
                 if(intersport.equals("수영"))
                 {
@@ -350,9 +350,10 @@ public class UserCertificate extends Fragment{
         timeList= String.format("%s\n",getTime());
         String hour=timeList.substring(0,2);
         String minute=timeList.substring(3,5);
+        Toast.makeText(getActivity().getApplicationContext(), ""+timeList+"ho"+"/", Toast.LENGTH_SHORT).show();
         int h=Integer.parseInt(hour);
         int m=Integer.parseInt(minute);
-        Toast.makeText(getActivity().getApplicationContext(), ""+timeList+"ho"+h+"/"+m, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity().getApplicationContext(), ""+timeList+"ho"+h+"/", Toast.LENGTH_SHORT).show();
         return h*60+m;
 
     }
