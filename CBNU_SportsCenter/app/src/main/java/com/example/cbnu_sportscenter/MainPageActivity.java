@@ -33,9 +33,11 @@ public class MainPageActivity extends AppCompatActivity {
     int id;
     //프래그먼트 정의
     UserCertificate userCertificate;
+    NoticeFragment noticeFragment;
     MypageFragment mypageFragment;
     IntroductionActivity introductionActivity;
     SportlistActivity sportlistActivity;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -89,7 +91,8 @@ public class MainPageActivity extends AppCompatActivity {
                     getSupportActionBar().setTitle("소개");
                 }
                 else if(id == R.id.menu4){
-                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                    replaceFragment(noticeFragment);
+                    getSupportActionBar().setTitle("공지");
                 }
                 else if(id == R.id.menu5){
                     mypageFragment.setArguments(bundle);
@@ -115,7 +118,6 @@ public class MainPageActivity extends AppCompatActivity {
                 userCertificate.setArguments(bundle);
                 replaceFragment(userCertificate);
                 getSupportActionBar().setTitle("이용증");
-
             }
         });
         usage.setOnClickListener(new View.OnClickListener() {
@@ -137,8 +139,8 @@ public class MainPageActivity extends AppCompatActivity {
         notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //fragmentTransaction.replace(R.id.frameLayout,userCertificate).commit();
-                Toast.makeText(getApplicationContext(), "공지", Toast.LENGTH_SHORT).show();
+                getSupportActionBar().setTitle("공지");
+                replaceFragment(noticeFragment);
             }
         });
     }
@@ -148,7 +150,7 @@ public class MainPageActivity extends AppCompatActivity {
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        //첫화면 프래그먼트 지정
+        //화면변경
         fragmentTransaction.replace(R.id.frameLayout,fragment).commit();
     }
 
