@@ -14,7 +14,6 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <meta-data android:name= "com.google.android.gms.version"
         android:value = "@integer/google_play_services_version"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/wangicon"
@@ -23,7 +22,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CBNU_SportsCenter"
         android:name=".Studentid"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+    >
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBJemJSIq1Ng-zx6bpdMfCQWd-OwRD7uUA"/>
+
         <activity
             android:name=".DirectionActivity"
             android:exported="false"
@@ -53,7 +57,4 @@
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBJemJSIq1Ng-zx6bpdMfCQWd-OwRD7uUA"/>
-    </manifest>
+        </manifest>
