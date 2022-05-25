@@ -41,7 +41,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
         <activity android:name=".MainPageActivity"/>
         <activity android:name=".SignupActivity"/>
         <meta-data
@@ -50,8 +49,7 @@
         <activity android:name=".SwimActivity" android:label="수영"/>
         <activity android:name=".WeightActivity" android:label="헬스"/>
         <activity android:name=".SquashActivity" android:label="스쿼시"/>
-        <activity android:name=".SportlistActivity"></activity>
-    </application>
+        </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
