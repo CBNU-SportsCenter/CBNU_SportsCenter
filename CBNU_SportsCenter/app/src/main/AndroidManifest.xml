@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cbnu_sportscenter">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,14 +22,15 @@
         android:roundIcon="@mipmap/wangicon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CBNU_SportsCenter"
+        android:name=".Studentid"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".DirectionActivity"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".FacilityMenuActivity"
             android:exported="false" />
-        <activity android:name=".SignupActivity" />
         <activity
             android:name=".StartActivity"
             android:exported="true">
@@ -38,19 +40,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-            </activity>
-
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".MainPageActivity"/>
+        <activity android:name=".SignupActivity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <activity android:name=".SwimActivity" android:label="수영"/>
+        <activity android:name=".WeightActivity" android:label="헬스"/>
+        <activity android:name=".SquashActivity" android:label="스쿼시"/>
+        </application>
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBJemJSIq1Ng-zx6bpdMfCQWd-OwRD7uUA"/>
-    </application>
-
-</manifest>
+    </manifest>

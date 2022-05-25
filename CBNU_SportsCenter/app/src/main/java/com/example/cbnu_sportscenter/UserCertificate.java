@@ -32,12 +32,16 @@ import java.util.Set;
 import java.util.TimeZone;
 
 
-public class UserCertificate extends Fragment {
+public class UserCertificate extends Fragment{
 
     MyDatabaseHelper DB;
     BackGroundThread backgroundThread;
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
     ImageView profileImage, reNew, qrCode;
+    String intersport;
+    MyDatabaseHelper DB;
+    String strswim,strweight,strsquash;
+    Integer swimnum,weightnum,squashnum;
     String studentid, name, major;
     Bundle bundle;  //정보 전달받는 객체
     Button enter, exit;
@@ -54,12 +58,14 @@ public class UserCertificate extends Fragment {
     int imageId = 1;
 
 
+
     private ScrollView scrollView;
     private TextView record;
 
 
     //타이머 시간 값을 저장할 변수
     private long baseTime,pauseTime;
+
 
     @Nullable
     @Override
@@ -73,7 +79,6 @@ public class UserCertificate extends Fragment {
         currentTime = view.findViewById(R.id.currentTime);
         university = view.findViewById(R.id.university);
         remainTime = view.findViewById(R.id.remainTime);
-
         profileImage = (ImageView) view.findViewById(R.id.profileImage);
         reNew = (ImageView) view.findViewById(R.id.reNew);
         qrCode = (ImageView) view.findViewById(R.id.qrCode);
@@ -143,7 +148,6 @@ public class UserCertificate extends Fragment {
                     public void onTick(long l) {
                         remainTime.setText(String.format(Locale.getDefault(), "%d 초", (Math.round((double) l / Timer_Interval) - 1)));  //시간 오류 해결
                     }
-
                     @Override
                     public void onFinish() {   //종료된다면
                         int newimageId = random.nextInt(images.length);
@@ -161,10 +165,36 @@ public class UserCertificate extends Fragment {
 
         handler.postDelayed(r, 0);
 
+
+        //등록이벤트발생
+        enter=(Button)view.findViewById(R.id.enter);
+        enter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intersport=DB.SportCenterUsage(((Studentid)getActivity().getApplication()).getData());
+                if(intersport.equals("수영"))
+                {
+                    strswim=DB.Swimeuser("등록조회"); //현재 수영인원 반환
+                    swimnum=Integer.parseInt(strswim);
+                    DB.UpdateSwimer("USERDATABASE","등록조회",swimnum);
+                }
+                else if(intersport.equals("헬스"))
+                {
+                    strweight=DB.Weighteuser("등록조회");
+                    weightnum=Integer.parseInt(strweight);
+                    DB.UpdateWeigther("USERDATABASE","등록조회",weightnum);
+                }
+                else if(intersport.equals("스쿼시"))
+                {
+                    strsquash=DB.Squasheuser("등록조회");
+                    squashnum=Integer.parseInt(strsquash);
+                    DB.UpdateSquasher("USERDATABASE","등록조회",squashnum);
+                }
+            }
+        });
         reNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (handler != null) {  //만약 handler 있다면 취소
                     handler.removeCallbacksAndMessages(null);
                     mCountDownTimer.cancel();
