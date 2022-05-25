@@ -32,6 +32,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_SQUASH="Squashcount";
     private static final String COLUMN_ENTER="enter";
 
+    private static final String TABLE_NAME2="ExerciseTime";
+    private static final String COLUMN_ID2="id";
+    private static final String COLUMN_STUDENTID2="studentid";
+    private static final String COLUMN_YEAR="year";
+    private static final String COLUMN_MONTH="month";
+    private static final String COLUMN_DAY="day";
+    private static final String COLUMN_TIME="time";
 
 
 
@@ -39,6 +46,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context=context;
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -49,6 +57,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_MAJOR+" TEXT, "+
                 COLUMN_PROGRAM+" TEXT, "+
                 COLUMN_ENTER+" TEXT);";
+
+        String query2="CREATE TABLE "+TABLE_NAME2+" ("+COLUMN_ID2+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                COLUMN_STUDENTID2+" TEXT, "+
+                COLUMN_YEAR+" TEXT, "+
+                COLUMN_MONTH+" TEXT, "+
+                COLUMN_DAY+" TEXT, "+
+                COLUMN_TIME+" TEXT);";
+
+
+        db.execSQL(query2);
         db.execSQL(query);
         String query1="CREATE TABLE "+TABLE_NAME1+
                 " ("+COLUMN_ID1+ " INTEGER PRIMARY KEY AUTOINCREMENT, "+
@@ -62,6 +80,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL(" DROP TABLE IF EXISTS "+TABLE_NAME);
+        db.execSQL(" DROP TABLE IF EXISTS "+TABLE_NAME2);
         db.execSQL(" DROP TABLE IF EXISTS "+TABLE_NAME1);
         onCreate(db);
     }
@@ -72,6 +91,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
+
         cv.put(COLUMN_STUDENTID, studentid);
         cv.put(COLUMN_PASSWORD, password);
         cv.put(COLUMN_NAME, name);
@@ -80,7 +100,37 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_ENTER, enter);
 
 
+
+
+
+
         long result = db.insert(TABLE_NAME,null, cv);
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+            return result;
+        }else {
+            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+            return result;
+        }
+    }
+
+    long addExerciseTime(String studentid, String year, String month,String day, String time)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_STUDENTID2, studentid);
+        cv.put(COLUMN_YEAR, year);
+        cv.put(COLUMN_MONTH, month);
+        cv.put(COLUMN_DAY, day);
+        cv.put(COLUMN_TIME, time);
+
+
+
+
+
+
+        long result = db.insert(TABLE_NAME2,null, cv);
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
             return result;
@@ -290,6 +340,18 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         else{
             return "error";
         }
+    }
+
+
+
+    public Cursor getExerciseInfo(String studentid){
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor = MyDB.rawQuery("Select * from ExerciseTime where studentid = ?",new String[] {studentid});
+
+
+            return cursor;
+
+
     }
 
 }
