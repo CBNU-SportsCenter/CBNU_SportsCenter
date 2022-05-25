@@ -25,10 +25,6 @@
         android:name=".Studentid"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".DirectionActivity"
-            android:exported="false"
-            tools:ignore="Instantiatable" />
-        <activity
             android:name=".FacilityMenuActivity"
             android:exported="false" />
         <activity
