@@ -9,10 +9,16 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class SportlistActivity extends Fragment {
 
     Button weight,swim,squash;
+    //Fragment
+    SwimActivity swimActivity;
+    WeightActivity weightActivity;
+    SquashActivity squashActivity;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,26 +29,31 @@ public class SportlistActivity extends Fragment {
         weight=view.findViewById((R.id.button2));
         squash=view.findViewById(R.id.button3);
 
+        //Framework
+        swimActivity=new SwimActivity();
+        weightActivity=new WeightActivity();
+        squashActivity=new SquashActivity();
         swim.setOnClickListener(new View.OnClickListener() { //버튼에서 페이지 이동 하기
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SwimActivity.class);
-                startActivity(intent);
-            }
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout,swimActivity).commit();}
         });
         weight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), WeightActivity.class);
-                startActivity(intent);
-            }
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout,weightActivity).commit();}
         });
         squash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), SquashActivity.class);
-                startActivity(intent);
-            }
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout,squashActivity).commit();}
+
         });
 
 
