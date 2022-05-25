@@ -104,14 +104,34 @@ public class UserCertificate extends Fragment{
         enter = (Button) view.findViewById(R.id.enter);
         exit = (Button) view.findViewById(R.id.exit);
         Bundle bundle = getArguments();
-
+        //등록이벤트발생
+        enter=(Button)view.findViewById(R.id.enter);
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // startButton();
+                startButton();
+                intersport=DB.SportCenterUsage(((Studentid)getActivity().getApplication()).getData());
+                if(intersport.equals("수영"))
+                {
+                    strswim=DB.Swimeuser("등록조회"); //현재 수영인원 반환
+                    swimnum=Integer.parseInt(strswim);
+                    DB.UpdateSwimer("USERDATABASE","등록조회",swimnum);
+                }
+                else if(intersport.equals("헬스"))
+                {
+                    strweight=DB.Weighteuser("등록조회");
+                    weightnum=Integer.parseInt(strweight);
+                    DB.UpdateWeigther("USERDATABASE","등록조회",weightnum);
+                }
+                else if(intersport.equals("스쿼시"))
+                {
+                    strsquash=DB.Squasheuser("등록조회");
+                    squashnum=Integer.parseInt(strsquash);
+                    DB.UpdateSquasher("USERDATABASE","등록조회",squashnum);
+                }
             }
         });
-
+        //퇴장 이벤트 발생
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -165,33 +185,7 @@ public class UserCertificate extends Fragment{
         handler.postDelayed(r, 0);
 
 
-        //등록이벤트발생
-        enter=(Button)view.findViewById(R.id.enter);
-        enter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startButton();
-                intersport=DB.SportCenterUsage(((Studentid)getActivity().getApplication()).getData());
-                if(intersport.equals("수영"))
-                {
-                    strswim=DB.Swimeuser("등록조회"); //현재 수영인원 반환
-                    swimnum=Integer.parseInt(strswim);
-                    DB.UpdateSwimer("USERDATABASE","등록조회",swimnum);
-                }
-                else if(intersport.equals("헬스"))
-                {
-                    strweight=DB.Weighteuser("등록조회");
-                    weightnum=Integer.parseInt(strweight);
-                    DB.UpdateWeigther("USERDATABASE","등록조회",weightnum);
-                }
-                else if(intersport.equals("스쿼시"))
-                {
-                    strsquash=DB.Squasheuser("등록조회");
-                    squashnum=Integer.parseInt(strsquash);
-                    DB.UpdateSquasher("USERDATABASE","등록조회",squashnum);
-                }
-            }
-        });
+
         reNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
