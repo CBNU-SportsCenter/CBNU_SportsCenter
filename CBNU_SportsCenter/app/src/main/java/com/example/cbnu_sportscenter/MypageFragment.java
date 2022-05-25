@@ -76,7 +76,6 @@ public class MypageFragment extends Fragment {
 
         date=getDate();
         today=date.substring(8,10);
-        Toast.makeText(container.getContext(), "today"+today, Toast.LENGTH_SHORT).show();
 
 
         BarChart barChart = view.findViewById(R.id.barchart);
@@ -95,7 +94,7 @@ public class MypageFragment extends Fragment {
 
 
 
-        BarDataSet barDataSet = new BarDataSet(visitors, "hello");
+        BarDataSet barDataSet = new BarDataSet(visitors, "Monthly Exercise Time");
         barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(16f);
@@ -104,7 +103,7 @@ public class MypageFragment extends Fragment {
 
         barChart.setFitBars(true);
         barChart.setData(barData);
-        barChart.getDescription().setText("Bar Chart Example");
+       // barChart.getDescription().setText("Monthly Exercise Time");
         barChart.animateY(2000);
         totaltext.setText("총:"+totaltime+"초");
 
