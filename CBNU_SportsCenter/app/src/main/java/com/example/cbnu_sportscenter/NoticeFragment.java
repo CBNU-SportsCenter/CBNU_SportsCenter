@@ -16,7 +16,6 @@ import android.widget.Button;
 
 
 public class NoticeFragment extends Fragment {
-    Button btncbnu, btngym,btnLife;
     WebView webView;
 
     @Override
@@ -24,9 +23,6 @@ public class NoticeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_notice, container, false);
-        btncbnu = (Button) view.findViewById(R.id.btnCbnu);
-        btngym = (Button) view.findViewById(R.id.btnGym);
-        btnLife=(Button)view.findViewById(R.id.btnLife);
         //webView
         webView = (WebView) view.findViewById(R.id.wView);
 
@@ -34,29 +30,6 @@ public class NoticeFragment extends Fragment {
         webView.getSettings().setJavaScriptEnabled(true); // 자바스크립트 사용여부
         webView.getSettings().setTextZoom(50);
         webView.loadUrl("https://sports.chungbuk.ac.kr/master.php?pg_idx=145&spg_idx=185");
-
-
-        btncbnu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //webview
-                webView.loadUrl("https://sports.chungbuk.ac.kr/master.php?pg_idx=145&spg_idx=185");
-            }
-        });
-        btngym.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //webview
-                webView.loadUrl("https://sports.chungbuk.ac.kr/master.php?pg_idx=145&spg_idx=184");
-            }
-        });
-        btnLife.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //webview
-                webView.loadUrl("https://sports.chungbuk.ac.kr/master.php?pg_idx=145&spg_idx=186");
-            }
-        });
 
         return view;
     }

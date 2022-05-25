@@ -66,6 +66,7 @@ public class MainPageActivity extends AppCompatActivity {
         mypageFragment=new MypageFragment();
         sportlistActivity=new SportlistActivity();
         introductionActivity=new IntroductionActivity();
+        noticeFragment=new NoticeFragment();
 
         //네비게이션뷰 선택하는 코드
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
