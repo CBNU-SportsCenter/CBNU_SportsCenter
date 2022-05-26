@@ -145,16 +145,16 @@ public class UserCertificate extends Fragment{
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                student=((Studentid)getActivity().getApplication()).getData(); //학생 아이디 반환
+                if(DB.getEnter(student).equals("1"))  //회원이 입장중일때
+                {
                     int t=pauseButton();
                     String date=getDate();
                     String time=Integer.toString(t);
                     String year=date.substring(0,4);
                     String month=date.substring(5,7);
                     String day=date.substring(8,10);
-                student=((Studentid)getActivity().getApplication()).getData(); //학생 아이디 반환
-                if(DB.getEnter(student).equals("1"))  //회원이 입장중일때
-                {
-                    intersport=DB.SportCenterUsage(student);
+                    intersport=DB.SportCenterUsage(student);       //퇴장상태일때만 되도록 만듬
                     DB.addExerciseTime(studentid,year,month,day,time);           //타이머 종료
                     if(intersport.equals("수영"))
                     {
