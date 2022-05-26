@@ -18,14 +18,9 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         DB = new MyDatabaseHelper(this);
 
-        if(!(DB.checkuserdatabase("등록조회")))  //데이터 베이스가 없으면
-        {
-            System.out.println("사용인원데이터베이스생성");
-            DB.SportCenterActivity("등록조회","0", "0", "0"); //새롭게 만든다.
-        }
-        System.out.println("이미있어요");
+        System.out.println("사용인원데이터베이스생성");
+        DB.SportCenterActivity("등록조회","0", "0", "0"); //새롭게 만든다.
         new Handler().postDelayed(new Runnable() {
-
             @Override
 
             public void run() {

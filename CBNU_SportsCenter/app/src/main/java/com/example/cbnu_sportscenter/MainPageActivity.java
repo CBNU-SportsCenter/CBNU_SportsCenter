@@ -33,8 +33,11 @@ public class MainPageActivity extends AppCompatActivity {
     int id;
     //프래그먼트 정의
     UserCertificate userCertificate;
+    NoticeFragment noticeFragment;
     MypageFragment mypageFragment;
     IntroductionActivity introductionActivity;
+    SportlistActivity sportlistActivity;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -47,12 +50,6 @@ public class MainPageActivity extends AppCompatActivity {
         createBundle(bundle);
 
 
-        //프래그먼트 객체 생성
-        userCertificate=new UserCertificate();
-        mypageFragment=new MypageFragment();
-
-
-
         //툴바
         mainToolbar=(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mainToolbar);
@@ -63,7 +60,14 @@ public class MainPageActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //왼쪽버튼 사용
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu); //왼쪽버튼 아이콘
         getSupportActionBar().setTitle("Sports Center");  //해당 액티비티의 툴바에 있는 타이틀을 공백으로 처리
-        
+
+        //프래그먼트 객체 생성
+        userCertificate=new UserCertificate();
+        mypageFragment=new MypageFragment();
+        sportlistActivity=new SportlistActivity();
+        introductionActivity=new IntroductionActivity();
+        noticeFragment=new NoticeFragment();
+
         //네비게이션뷰 선택하는 코드
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -80,14 +84,16 @@ public class MainPageActivity extends AppCompatActivity {
                     getSupportActionBar().setTitle("이용증");
                 }
                 else if(id == R.id.menu2){
-                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                    replaceFragment(sportlistActivity);
+                    getSupportActionBar().setTitle("이용조회");
                 }
                 else if(id == R.id.menu3){
                     replaceFragment(introductionActivity);
                     getSupportActionBar().setTitle("소개");
                 }
                 else if(id == R.id.menu4){
-                    Toast.makeText(getApplicationContext(), title, Toast.LENGTH_SHORT).show();
+                    replaceFragment(noticeFragment);
+                    getSupportActionBar().setTitle("공지");
                 }
                 else if(id == R.id.menu5){
                     mypageFragment.setArguments(bundle);
@@ -96,15 +102,6 @@ public class MainPageActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-
-        userCertificate=new UserCertificate();
-        mypageFragment=new MypageFragment();
-        introductionActivity=new IntroductionActivity();
-
-
-
-
 
 
         //프레그먼트 이동 버튼
@@ -121,31 +118,30 @@ public class MainPageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 userCertificate.setArguments(bundle);
                 replaceFragment(userCertificate);
+                getSupportActionBar().setTitle("이용증");
             }
         });
         usage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //fragmentTransaction.replace(R.id.frameLayout,userCertificate).commit();
-                Intent intent = new Intent(getApplicationContext(), SportlistActivity.class);
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(), "이용조회", Toast.LENGTH_SHORT).show();
-
-
+                //Intent intent = new Intent(getApplicationContext(), SportlistActivity.class);
+                //startActivity(intent);
+                replaceFragment(sportlistActivity);
+                getSupportActionBar().setTitle("이용조회");
             }
         });
         intro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //fragmentTransaction.replace(R.id.frameLayout,userCertificate).commit();
                 replaceFragment(introductionActivity);
+                getSupportActionBar().setTitle("소개");
             }
         });
         notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //fragmentTransaction.replace(R.id.frameLayout,userCertificate).commit();
-                Toast.makeText(getApplicationContext(), "공지", Toast.LENGTH_SHORT).show();
+                getSupportActionBar().setTitle("공지");
+                replaceFragment(noticeFragment);
             }
         });
     }
@@ -155,19 +151,12 @@ public class MainPageActivity extends AppCompatActivity {
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        //첫화면 프래그먼트 지정
+        //화면변경
         fragmentTransaction.replace(R.id.frameLayout,fragment).commit();
-        //fragmentTransaction.replace(R.id.frameLayout,mypageFragment).commit();
-
-
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
-
-
     }
 
     @Override //메뉴설정
     public boolean onCreateOptionsMenu(Menu menu) { 
-        //return super.onCreateOptionsMenu(menu);
         MenuInflater menuInflater=getMenuInflater();
         menuInflater.inflate(R.menu.main_toolbar,menu);
         return true;

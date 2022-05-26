@@ -72,7 +72,7 @@ public class SignupActivity extends AppCompatActivity {
                 String name=Name.getEditText().getText().toString().trim();
                 String major=Major.getEditText().getText().toString().trim();
                 String program=Spn.getSelectedItem().toString();
-                String enter="false";
+                String enter="0"; //처음엔 퇴장상태
 
                 if(studentid.equals("") || password1.equals("") || password2.equals("") ||
                         name.equals("") || major.equals("") )
