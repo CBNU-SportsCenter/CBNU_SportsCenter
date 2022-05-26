@@ -20,28 +20,44 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class DirectionActivity extends Fragment implements OnMapReadyCallback {
+public class DirectionActivity extends Fragment {
 
-    GoogleMap gMap;
-    MapFragment mapFrag;
+    public SupportMapFragment mapFragment;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_direction, container, false);
 
-        mapFrag= (MapFragment) getActivity().getFragmentManager().findFragmentById(R.id.map);
-        mapFrag.getMapAsync(this);
+        if (mapFragment == null) {
+            mapFragment = SupportMapFragment.newInstance();
+            mapFragment.getMapAsync(new OnMapReadyCallback() {
+                @Override
+                public void onMapReady(GoogleMap googleMap) {
+                    LatLng latLng = new LatLng(36.62731438736138, 127.4605258575477);
+                    googleMap.addMarker(new MarkerOptions().position(latLng)
+                            .title("SportsCenter"));
+                    googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                }
+            });
+        }
+
+        // R.id.map is a FrameLayout, not a Fragment
+        getChildFragmentManager().beginTransaction().replace(R.id.map, mapFragment).commit();
+
+
 
         return view;
     }
 
+    /*
     @Override
     public void onMapReady(GoogleMap map){
         gMap = map;
@@ -61,10 +77,8 @@ public class DirectionActivity extends Fragment implements OnMapReadyCallback {
         Bitmap smallMarker = Bitmap.createScaledBitmap(b,90, 90, false);
         markerOptions  .icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
         gMap.addMarker(markerOptions);
-
-
     }
-
+*/
 
 
 
