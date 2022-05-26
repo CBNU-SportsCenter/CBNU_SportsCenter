@@ -39,6 +39,7 @@ public class UserCertificate extends Fragment{
     TextView userMajor, studentCode, userName, currentTime, university, remainTime;
     ImageView profileImage, reNew, qrCode;
     String intersport;
+    String student;
     String strswim,strweight,strsquash;
     Integer swimnum,weightnum,squashnum;
     String studentid, name, major;
@@ -105,29 +106,38 @@ public class UserCertificate extends Fragment{
         exit = (Button) view.findViewById(R.id.exit);
         Bundle bundle = getArguments();
         //등록이벤트발생
-        enter=(Button)view.findViewById(R.id.enter);
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startButton();
-                intersport=DB.SportCenterUsage(((Studentid)getActivity().getApplication()).getData());
+                student=((Studentid)getActivity().getApplication()).getData();
+                if(DB.getEnter(student).equals("0"))  //해당 회원이 퇴실상태면
+                {
+                startButton(); //시간 재는것
+                intersport=DB.SportCenterUsage(student);
                 if(intersport.equals("수영"))
                 {
                     strswim=DB.Swimeuser("등록조회"); //현재 수영인원 반환
                     swimnum=Integer.parseInt(strswim);
                     DB.UpdateSwimer("USERDATABASE","등록조회",swimnum);
+                    DB.EnterUpdate("UserAccount",student,0);
                 }
                 else if(intersport.equals("헬스"))
                 {
                     strweight=DB.Weighteuser("등록조회");
                     weightnum=Integer.parseInt(strweight);
                     DB.UpdateWeigther("USERDATABASE","등록조회",weightnum);
+                    DB.EnterUpdate("UserAccount",student,0);
                 }
                 else if(intersport.equals("스쿼시"))
                 {
                     strsquash=DB.Squasheuser("등록조회");
                     squashnum=Integer.parseInt(strsquash);
                     DB.UpdateSquasher("USERDATABASE","등록조회",squashnum);
+                    DB.EnterUpdate("UserAccount",student,0);
+                }
+            }
+                else{   //해당 학생이 입장 상태면
+                    System.out.println("이미 입장중입니다");
                 }
             }
         });
@@ -141,8 +151,36 @@ public class UserCertificate extends Fragment{
                     String year=date.substring(0,4);
                     String month=date.substring(5,7);
                     String day=date.substring(8,10);
-
-                    DB.addExerciseTime(studentid,year,month,day,time);
+                student=((Studentid)getActivity().getApplication()).getData(); //학생 아이디 반환
+                if(DB.getEnter(student).equals("1"))  //회원이 입장중일때
+                {
+                    intersport=DB.SportCenterUsage(student);
+                    DB.addExerciseTime(studentid,year,month,day,time);           //타이머 종료
+                    if(intersport.equals("수영"))
+                    {
+                        strswim=DB.Swimeuser("등록조회"); //현재 수영인원 반환
+                        swimnum=Integer.parseInt(strswim);
+                        DB.ExitUpdate("UserAccount",student,0);
+                        DB.DownGradeSwimer("USERDATABASE","등록조회",swimnum);
+                    }
+                    else if(intersport.equals("헬스"))
+                    {
+                        strweight=DB.Weighteuser("등록조회");
+                        weightnum=Integer.parseInt(strweight);
+                        DB.DownGradeWeigther("USERDATABASE","등록조회",weightnum);
+                        DB.ExitUpdate("UserAccount",student,0);
+                    }
+                    else if(intersport.equals("스쿼시"))
+                    {
+                        strsquash=DB.Squasheuser("등록조회");
+                        squashnum=Integer.parseInt(strsquash);
+                        DB.DownGradeSquasher("USERDATABASE","등록조회",squashnum);
+                        DB.ExitUpdate("UserAccount",student,0);
+                    }
+                }
+                else{   //해당 학생이 입장 상태면
+                    System.out.println("퇴장상태입니다");
+                }
             }
         });
 

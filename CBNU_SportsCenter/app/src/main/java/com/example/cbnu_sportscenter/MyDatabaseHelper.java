@@ -23,6 +23,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_NAME="name";
     private static final String COLUMN_MAJOR="major";
     private static final String COLUMN_PROGRAM="program";
+    private static final String COLUMN_ENTER="enter";
     //스포츠센터 이용인원
     private static final String TABLE_NAME1 ="USERDATABASE";
     private static final String COLUMN_ID1 ="id";
@@ -30,7 +31,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_SWIM="Swimcount";
     private static final String COLUMN_HEALTH="Healthcount";
     private static final String COLUMN_SQUASH="Squashcount";
-    private static final String COLUMN_ENTER="enter";
 
     private static final String TABLE_NAME2="ExerciseTime";
     private static final String COLUMN_ID2="id";
@@ -246,7 +246,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_SWIM,(num).toString());
         //update
         int result=db.update(tableName,cv,"Title= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
-        System.out.println("수영업데이트 성공! : "+num);
+        System.out.println("수영입장 성공! : "+num);
+    }
+    public void DownGradeSwimer(String tableName,String name,Integer num)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        System.out.println("수영인원 "+num);
+        ContentValues cv=new ContentValues();
+        String nameArr[]={name};
+        num--;
+        cv.put(COLUMN_SWIM,(num).toString());
+        //update
+        int result=db.update(tableName,cv,"Title= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
+        System.out.println("수영퇴실 성공! 수영인원 : "+num);
     }
     public void UpdateWeigther(String tableName,String name,Integer num)
     {
@@ -258,7 +270,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_HEALTH,(num).toString());
         //update
         int result=db.update(tableName,cv,"Title= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
-        System.out.println("헬스업데이트 성공! : "+num);
+        System.out.println("헬스입장 성공!  헬스인원: "+num);
+    }
+    public void DownGradeWeigther(String tableName,String name,Integer num)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        System.out.println("헬스인원 "+num);
+        ContentValues cv=new ContentValues();
+        String nameArr[]={name};
+        num--;
+        cv.put(COLUMN_HEALTH,(num).toString());
+        //update
+        int result=db.update(tableName,cv,"Title= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
+        System.out.println("헬스퇴실 성공! 헬스인원: "+num);
     }
     public void UpdateSquasher(String tableName,String name,Integer num)
     {
@@ -270,12 +294,23 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_SQUASH,(num).toString());
         //update
         int result=db.update(tableName,cv,"Title= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
-        System.out.println("스쿼시업데이트 성공! : "+num);
+        System.out.println("스쿼시입장 성공! 스쿼시 인원: "+num);
+    }
+    public void DownGradeSquasher(String tableName,String name,Integer num)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        System.out.println("스쿼시인원 "+num);
+        ContentValues cv=new ContentValues();
+        String nameArr[]={name};
+        num--;
+        cv.put(COLUMN_SQUASH,(num).toString());
+        //update
+        int result=db.update(tableName,cv,"Title= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
+        System.out.println("스쿼시입장 성공! : "+num);
     }
     public String getName(String studentid){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from UserAccount where studentid = ?",new String[] {studentid});
-
         if(cursor.getCount()>0) {
             cursor.moveToFirst();
             return cursor.getString(3);
@@ -341,14 +376,36 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             return "error";
         }
     }
+    public void EnterUpdate(String tableName,String name,Integer enter1)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        System.out.println("입장");
+        ContentValues cv=new ContentValues();
+        String nameArr[]={name};
+        enter1=1;
+        cv.put(COLUMN_ENTER,(enter1).toString());
+        //update
+        int result=db.update(tableName,cv,"studentid= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
+        System.out.println("입장 성공! : "+enter1);
+    }
 
+    public void ExitUpdate(String tableName,String name,Integer enter1)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        System.out.println("퇴실");
+        ContentValues cv=new ContentValues();
+        String nameArr[]={name};
+        enter1=0;
+        cv.put(COLUMN_ENTER,(enter1).toString());
+        //update
+        int result=db.update(tableName,cv,"studentid= ? ",nameArr); //수영 이름에 대한 이용인원 숫자 증가 update
+        System.out.println("퇴실 성공! : "+enter1);
+    }
 
 
     public Cursor getExerciseInfo(String studentid){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from ExerciseTime where studentid = ?",new String[] {studentid});
-
-
             return cursor;
 
 
