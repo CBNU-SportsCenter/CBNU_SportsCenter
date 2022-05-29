@@ -12,13 +12,14 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
+        app:titleTextColor="@color/white"
+        android:background="@color/cbnu"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:theme="@style/Theme.CBNU_SportsCenter" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,48 +29,65 @@
 
         <Button
             android:id="@+id/Cert"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/cbnu"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="0dp"
             android:layout_weight="1"
-            android:insetTop="2dp"
-            android:insetBottom="2dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:fontFamily="@font/baemin"
             android:text="이용증" />
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/cbnu"
             android:text="이용조회"
+            android:fontFamily="@font/baemin"
             android:id="@+id/Usag"
-            android:insetTop="2dp"
-            android:insetBottom="2dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             />
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/cbnu"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
             android:text="소개"
+            android:fontFamily="@font/baemin"
             android:id="@+id/Intr"
-            android:insetTop="2dp"
-            android:insetBottom="2dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/cbnu"
+            android:fontFamily="@font/baemin"
+
+            android:minHeight="0dp"
+            android:minWidth="0dp"
             android:text="공지"
             android:id="@+id/Noti"
-            android:insetTop="2dp"
-            android:insetBottom="2dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             />
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="12"
-        android:id="@+id/frameLayout"/>
+        android:layout_weight="12" />
 
 
 </LinearLayout>
