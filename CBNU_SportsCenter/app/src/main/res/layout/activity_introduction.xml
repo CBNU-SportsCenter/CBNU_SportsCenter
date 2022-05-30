@@ -32,7 +32,7 @@
             android:layout_marginLeft="6dp"
             android:layout_marginBottom="24dp"
             android:fontFamily="@font/baemin"
-            android:text="소개글"
+            android:text="스포츠센터 소개"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -54,7 +54,7 @@
             android:layout_marginLeft="6dp"
             android:fontFamily="@font/baemin"
             android:layout_marginBottom="24dp"
-            android:text="내부 시설"
+            android:text="주요 내부 시설"
             android:textSize="24sp" />
     </LinearLayout>
 
