@@ -148,13 +148,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:onClick="signupUser"
-                android:text="정보수정" />
+                android:text="정보수정"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/cbnu"
+                android:fontFamily="@font/baemin"
+                />
 
             <Button
                 android:id="@+id/btn_back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="뒤로가기"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/cbnu"
+                android:fontFamily="@font/baemin"
+
                 />
 
 

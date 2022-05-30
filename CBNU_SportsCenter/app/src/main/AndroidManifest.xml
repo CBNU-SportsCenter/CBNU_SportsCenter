@@ -26,15 +26,12 @@
     >
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBJemJSIq1Ng-zx6bpdMfCQWd-OwRD7uUA"/>
+            android:value="YOUR_KEY"/>
 
         <activity
             android:name=".DirectionActivity"
             android:exported="false"
             tools:ignore="Instantiatable" />
-        <activity
-            android:name=".FacilityMenuActivity"
-            android:exported="false" />
         <activity
             android:name=".StartActivity"
             android:exported="true">

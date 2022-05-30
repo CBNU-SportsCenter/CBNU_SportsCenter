@@ -42,9 +42,21 @@ public class DirectionActivity extends Fragment {
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
                     LatLng latLng = new LatLng(36.62731438736138, 127.4605258575477);
-                    googleMap.addMarker(new MarkerOptions().position(latLng)
-                            .title("SportsCenter"));
-                    googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                    googleMap.setMinZoomPreference(6.0f);
+                    googleMap.setMaxZoomPreference(18.0f);
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(36.62724140000011, 127.45646389999949),15));
+
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    markerOptions.position(new LatLng(36.62731438736138, 127.4605258575477));
+                    markerOptions.title("스포츠센터");
+
+
+                    BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.wang1);
+                    Bitmap b=bitmapdraw.getBitmap();
+                    Bitmap smallMarker = Bitmap.createScaledBitmap(b,100, 100, false);
+                    markerOptions  .icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
+                    googleMap.addMarker(markerOptions);
+
                 }
             });
         }
@@ -53,32 +65,12 @@ public class DirectionActivity extends Fragment {
         getChildFragmentManager().beginTransaction().replace(R.id.map, mapFragment).commit();
 
 
-
         return view;
     }
 
-    /*
-    @Override
-    public void onMapReady(GoogleMap map){
-        gMap = map;
-        gMap.setMinZoomPreference(6.0f);   //최소 줌 크기 설정
-        gMap.setMaxZoomPreference(14.0f);  //최대 줌 크기 설정
-        gMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(36.62724140000011, 127.45646389999949),15));
 
 
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(new LatLng(36.62731438736138, 127.4605258575477));
-        markerOptions.title("스포츠센터");
 
-
-        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.wang1);
-        Bitmap b=bitmapdraw.getBitmap();
-        Bitmap smallMarker = Bitmap.createScaledBitmap(b,90, 90, false);
-        markerOptions  .icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
-        gMap.addMarker(markerOptions);
-    }
-*/
 
 
 
