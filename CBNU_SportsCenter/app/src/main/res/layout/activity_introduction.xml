@@ -11,11 +11,11 @@
         android:id="@+id/viewFlipper"
         android:layout_width="match_parent"
         android:layout_height="196dp"
-        android:layout_marginBottom="24dp"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -30,7 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
-            android:layout_marginBottom="24dp"
             android:fontFamily="@font/baemin"
             android:text="스포츠센터 소개"
             android:textSize="24sp" />
@@ -38,6 +37,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -53,13 +53,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:fontFamily="@font/baemin"
-            android:layout_marginBottom="24dp"
             android:text="주요 내부 시설"
             android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -75,7 +75,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:fontFamily="@font/baemin"
-            android:layout_marginBottom="24dp"
             android:text="오시는 길"
             android:textSize="24sp" />
     </LinearLayout>

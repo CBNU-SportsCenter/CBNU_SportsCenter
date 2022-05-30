@@ -8,7 +8,7 @@
     tools:context=".FacilityMenuActivity">
 
     <LinearLayout
-        android:layout_marginTop="24sp"
+        android:background="@drawable/borderbottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -25,13 +25,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:fontFamily="@font/baemin"
-            android:layout_marginBottom="24dp"
             android:text="지하 1층"
             android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -47,13 +47,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:fontFamily="@font/baemin"
-            android:layout_marginBottom="24dp"
             android:text="지상 1층"
             android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -69,13 +69,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:fontFamily="@font/baemin"
-            android:layout_marginBottom="24dp"
             android:text="지상 2층"
             android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -91,13 +91,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:fontFamily="@font/baemin"
-            android:layout_marginBottom="24dp"
             android:text="지상 3층"
             android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -113,15 +113,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:fontFamily="@font/baemin"
-            android:layout_marginBottom="24dp"
             android:text="지상 4층"
             android:textSize="24sp" />
     </LinearLayout>
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/directionImage"
-        android:paddingTop="12dp"
+        android:scaleType = "fitXY"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="360dp"
         android:src="@drawable/cutewang" />
 
 </LinearLayout>
