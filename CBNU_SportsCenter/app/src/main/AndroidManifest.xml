@@ -33,9 +33,6 @@
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".FacilityMenuActivity"
-            android:exported="false" />
-        <activity
             android:name=".StartActivity"
             android:exported="true">
             <intent-filter>

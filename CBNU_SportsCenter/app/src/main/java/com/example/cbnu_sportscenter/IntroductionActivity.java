@@ -24,6 +24,7 @@ public class IntroductionActivity extends Fragment {
     //Fragment
     IntroductionActivity2 introductionActivity2;
     DirectionActivity directionActivity;
+    FacilityMenuActivity facilityMenuActivity;
 
     @Nullable
     @Override
@@ -39,6 +40,7 @@ public class IntroductionActivity extends Fragment {
         //Framgnet
         introductionActivity2=new IntroductionActivity2();
         directionActivity=new DirectionActivity();
+        facilityMenuActivity=new FacilityMenuActivity();
 
         toIntroduction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,8 +53,11 @@ public class IntroductionActivity extends Fragment {
         toFacilities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity().getApplicationContext(),FacilityMenuActivity.class);
-                startActivity(intent);
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout,facilityMenuActivity).commit();
+
+
             }
         });
 

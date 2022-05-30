@@ -10,7 +10,8 @@
     <LinearLayout
         android:background="@drawable/borderbottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/logoView1"
@@ -32,7 +33,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:background="@drawable/borderbottom"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/logoView2"
@@ -54,7 +56,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:background="@drawable/borderbottom"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/logoView3"
@@ -76,7 +79,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:background="@drawable/borderbottom"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/logoView4"
@@ -98,7 +102,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:background="@drawable/borderbottom"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/logoView5"
@@ -120,7 +125,8 @@
         android:id="@+id/directionImage"
         android:scaleType = "fitXY"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
+        android:layout_height="0dp"
+        android:layout_weight="5"
         android:src="@drawable/cutewang" />
 
 </LinearLayout>
