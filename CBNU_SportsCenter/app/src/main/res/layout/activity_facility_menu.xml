@@ -117,10 +117,11 @@
             android:text="지상 4층"
             android:textSize="24sp" />
     </LinearLayout>
-        <ImageView
+    <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/directionImage"
+        android:paddingTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        app:srcCompat="@drawable/cutewang" />
+        android:src="@drawable/cutewang" />
 
 </LinearLayout>

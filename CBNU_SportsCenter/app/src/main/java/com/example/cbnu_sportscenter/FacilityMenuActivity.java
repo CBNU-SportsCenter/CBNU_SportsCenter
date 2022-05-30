@@ -8,10 +8,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 public class FacilityMenuActivity extends AppCompatActivity {
 
     TextView toFloor0, toFloor1, toFloor2, toFloor3, toFloor4;
-    ImageView directionImage;
+    PhotoView directionImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,7 @@ public class FacilityMenuActivity extends AppCompatActivity {
         toFloor3 = findViewById(R.id.toFloor3);
         toFloor4 = findViewById(R.id.toFloor4);
 
-        directionImage = findViewById(R.id.directionImage);
+        PhotoView directionImage = findViewById(R.id.directionImage);
         toFloor0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
