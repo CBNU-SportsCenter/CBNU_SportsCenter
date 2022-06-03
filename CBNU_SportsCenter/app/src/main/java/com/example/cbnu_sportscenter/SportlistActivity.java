@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -14,7 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class SportlistActivity extends Fragment {
 
-    Button weight,swim,squash;
+    TextView weight,swim,squash;
     //Fragment
     SwimActivity swimActivity;
     WeightActivity weightActivity;
@@ -25,14 +26,16 @@ public class SportlistActivity extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.activity_sportlist, container, false);
 
-        swim=view.findViewById(R.id.button1);
-        weight=view.findViewById((R.id.button2));
-        squash=view.findViewById(R.id.button3);
+        swim=view.findViewById(R.id.swim);
+        weight=view.findViewById((R.id.weight));
+        squash=view.findViewById(R.id.squash);
 
         //Framework
         swimActivity=new SwimActivity();
         weightActivity=new WeightActivity();
         squashActivity=new SquashActivity();
+
+
         swim.setOnClickListener(new View.OnClickListener() { //버튼에서 페이지 이동 하기
             @Override
             public void onClick(View view) {
