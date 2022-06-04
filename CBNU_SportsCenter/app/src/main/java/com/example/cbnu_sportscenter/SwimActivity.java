@@ -45,7 +45,7 @@ public class SwimActivity extends Fragment {
         } else {
             swimletter.setText("혼잡도 : 혼잡");
             swimletter.setTextColor(Color.parseColor("#ff0000"));
-            image.setImageResource(R.drawable.cow2);  //사람이 많으면 우는 우왕이
+            image.setImageResource(R.drawable.cow3);  //사람이 많으면 우는 우왕이
         }
         return view;
     }

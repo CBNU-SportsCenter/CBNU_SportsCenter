@@ -46,7 +46,7 @@ public class SquashActivity extends Fragment {
         {
             squashletter.setText("혼잡도 : 혼잡");
             squashletter.setTextColor(Color.parseColor("#ff0000"));
-            image.setImageResource(R.drawable.cow2);
+            image.setImageResource(R.drawable.cow3);
         }
 
         return view;

@@ -42,7 +42,7 @@ public class WeightActivity extends Fragment {
         } else {
             weightletter.setText("혼잡도 : 혼잡");
             weightletter.setTextColor(Color.parseColor("#ff0000"));
-            image.setImageResource(R.drawable.cow2);
+            image.setImageResource(R.drawable.cow3);
         }
 
 
