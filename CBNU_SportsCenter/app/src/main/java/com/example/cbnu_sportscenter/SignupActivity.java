@@ -76,7 +76,7 @@ public class SignupActivity extends AppCompatActivity {
 
                 if(studentid.equals("") || password1.equals("") || password2.equals("") ||
                         name.equals("") || major.equals("") )
-                    Toast.makeText(SignupActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, "입력을 다시 확인해주세요!", Toast.LENGTH_SHORT).show();
                 else{
                     if(password1.equals(password2)){
                         Boolean checkstudentid = DB.checkuserstudentid(studentid);
@@ -92,10 +92,10 @@ public class SignupActivity extends AppCompatActivity {
 
                         }
                         else{
-                            Toast.makeText(SignupActivity.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupActivity.this, "이미 존재하는 회원입니다!", Toast.LENGTH_SHORT).show();
                         }
                     }else{
-                        Toast.makeText(SignupActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "비밀번호가 일치하지 않습니다!", Toast.LENGTH_SHORT).show();
                     }
                 }
 

@@ -137,7 +137,7 @@ public class UserCertificate extends Fragment{
                 }
             }
                 else{   //해당 학생이 입장 상태면
-                    System.out.println("이미 입장중입니다");
+                    System.out.println("이미 입장중입니다!");
                 }
             }
         });
@@ -179,7 +179,7 @@ public class UserCertificate extends Fragment{
                     }
                 }
                 else{   //해당 학생이 입장 상태면
-                    System.out.println("퇴장상태입니다");
+                    System.out.println("퇴장상태입니다!");
                 }
             }
         });
@@ -410,14 +410,14 @@ public class UserCertificate extends Fragment{
 
         //핸들러 실행
         handler2.sendEmptyMessage(0);
-        Toast.makeText(getActivity().getApplicationContext(), "init", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity().getApplicationContext(), "입장!", Toast.LENGTH_SHORT).show();
 
 
     }
 
 
     private int pauseButton(){
-        Toast.makeText(getActivity().getApplicationContext(), "pause", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity().getApplicationContext(), "퇴장!", Toast.LENGTH_SHORT).show();
 
         //핸들러 정지
         handler2.removeMessages(0);
@@ -428,10 +428,10 @@ public class UserCertificate extends Fragment{
         timeList= String.format("%s\n",getTime());
         String hour=timeList.substring(0,2);
         String minute=timeList.substring(3,5);
-        Toast.makeText(getActivity().getApplicationContext(), ""+timeList+"ho"+"/", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity().getApplicationContext(), ""+timeList+"ho"+"/", Toast.LENGTH_SHORT).show();
         int h=Integer.parseInt(hour);
         int m=Integer.parseInt(minute);
-        Toast.makeText(getActivity().getApplicationContext(), ""+timeList+"ho"+h+"/", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity().getApplicationContext(), ""+timeList+"ho"+h+"/", Toast.LENGTH_SHORT).show();
         return h*60+m;
 
     }

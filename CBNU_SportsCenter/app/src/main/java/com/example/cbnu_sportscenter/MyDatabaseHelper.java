@@ -106,10 +106,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         long result = db.insert(TABLE_NAME,null, cv);
         if(result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "회원가입 실패!", Toast.LENGTH_SHORT).show();
             return result;
         }else {
-            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "회원가입 성공!", Toast.LENGTH_SHORT).show();
             return result;
         }
     }
@@ -135,7 +135,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
             return result;
         }else {
-            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "운동시간 등록!", Toast.LENGTH_SHORT).show();
             return result;
         }
     }
@@ -152,10 +152,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         long result = db.update(TABLE_NAME, cv, "studentid=?", new String[]{studentid});
         if(result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "수정 실패!", Toast.LENGTH_SHORT).show();
             return result;
         }else {
-            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "수정 완료!", Toast.LENGTH_SHORT).show();
             return result;
         }
 
@@ -203,8 +203,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
             return result;
         }else {
-            Toast.makeText(context, "이용조회 데이터베이스 성공", Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, "result is"+result, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "이용조회 데이터베이스 성공", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "result is"+result, Toast.LENGTH_SHORT).show();
             return result;
         }
     }

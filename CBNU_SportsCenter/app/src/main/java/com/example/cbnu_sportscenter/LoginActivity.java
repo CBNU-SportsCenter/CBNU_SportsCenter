@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = Password.getEditText().getText().toString();
                 int id;
                 if (studentid.equals("") || password.equals(""))
-                    Toast.makeText(LoginActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "입력을 확인해주세요!", Toast.LENGTH_SHORT).show();
                 else {
                     Boolean checkuserpass = DB.checkstudentidpassword(studentid, password);
                     if (checkuserpass == true) {
@@ -97,11 +97,11 @@ public class LoginActivity extends AppCompatActivity {
                         {
                             Toast.makeText(LoginActivity.this, "cursor count 0", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(LoginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "로그인 성공!", Toast.LENGTH_SHORT).show();
                         ((Studentid)getApplication()).setData(studentid); //해당 아이디로 들어왔을때 아이디를 유지하기위해 선언
                     }
                     else{
-                        Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "로그인 실패!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

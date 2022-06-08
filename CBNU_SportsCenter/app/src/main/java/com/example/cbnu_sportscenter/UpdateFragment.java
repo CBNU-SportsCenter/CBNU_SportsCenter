@@ -114,7 +114,7 @@ public class UpdateFragment extends Fragment {
 
                 if(studentid.equals("") || password1.equals("") || password2.equals("") ||
                         name.equals("") || major.equals("") )
-                    Toast.makeText(getActivity().getApplicationContext(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "모든 항목을 입력해주세요!", Toast.LENGTH_SHORT).show();
                 else{
                     if(password1.equals(password2)){
 
@@ -127,7 +127,7 @@ public class UpdateFragment extends Fragment {
                                         beginTransaction().replace(R.id.frameLayout, mypagefragment).commit();;
                             }
                     }else{
-                        Toast.makeText(getActivity().getApplicationContext(), "Passwords not matching", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "비밀번호가 일치하지 않습니다!", Toast.LENGTH_SHORT).show();
                     }
                 }
 

@@ -28,7 +28,7 @@
 
                 <ImageView
                     android:id="@+id/profileImage"
-                    android:layout_width="120dp"
+                    android:layout_width="100dp"
                     android:layout_height="180dp"
                     app:srcCompat="@drawable/wang1"
                     tools:srcCompat="@drawable/wang1" />
@@ -43,9 +43,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24sp"
+                        android:layout_marginRight="12sp"
                         android:layout_marginTop="36sp"
                         android:text="소프트웨어학과"
                         android:textAlignment="center"
+                        android:fontFamily="@font/baemin"
                         android:textSize="24sp" />
 
                     <TextView
@@ -53,8 +55,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24sp"
+                        android:layout_marginRight="12sp"
                         android:text="2018038076"
                         android:textAlignment="center"
+                        android:fontFamily="@font/baemin"
                         android:textSize="24sp" />
 
                     <TextView
@@ -62,8 +66,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24sp"
+                        android:layout_marginRight="12sp"
                         android:text="노민성"
                         android:textAlignment="center"
+                        android:fontFamily="@font/baemin"
                         android:textSize="24sp" />
 
                     <LinearLayout
@@ -73,8 +79,9 @@
                         <Button
                             android:id="@+id/enter"
                             android:layout_marginLeft="24sp"
+                            android:layout_marginRight="12sp"
                             android:layout_width="70dp"
-                            android:layout_height="40dp"
+                            android:layout_height="match_parent"
                             android:text="입장"
                             android:textColor="@color/white"
                             android:backgroundTint="@color/cbnu"
@@ -85,7 +92,7 @@
                             android:id="@+id/exit"
                             android:layout_marginLeft="12sp"
                             android:layout_width="70dp"
-                            android:layout_height="40dp"
+                            android:layout_height="match_parent"
                             android:text="퇴장"
                             android:textColor="@color/white"
                             android:backgroundTint="@color/cbnu"
