@@ -185,9 +185,9 @@ public class UserCertificate extends Fragment{
         });
 
 
-
-
         Handler handler = new Handler();
+
+
 
         TimeZone timeZone;
         DateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm:ss", Locale.KOREAN);
@@ -214,9 +214,13 @@ public class UserCertificate extends Fragment{
                         }
                         qrCode.setBackgroundResource(images[newimageId]);
                         imageId = newimageId;
+                       // mCountDownTimer.cancel();
+                        handler.removeMessages(0);
                     }
 
                 }.start();
+
+
             }
         };
 
@@ -230,6 +234,7 @@ public class UserCertificate extends Fragment{
                 if (handler != null) {  //만약 handler 있다면 취소
                     handler.removeCallbacksAndMessages(null);
                     mCountDownTimer.cancel();
+                    mCountDownTimer.onFinish();
                 }
 
                 int newimageId = random.nextInt(images.length);  //새로 이미지 설정
@@ -244,7 +249,7 @@ public class UserCertificate extends Fragment{
                     @Override
                     public void run() {
                         handler.postDelayed(this, Timer_Duration);
-                        mCountDownTimer = new CountDownTimer(Timer_Duration, Timer_Interval) {   //총 30초동안, 매1초씩 줄어듬
+                        mCountDownTimer = new CountDownTimer(Timer_Duration, Timer_Interval) {   //총 60초동안, 매1초씩 줄어듬
                             @Override
                             public void onTick(long l) {
                                 remainTime.setText(String.format(Locale.getDefault(), "%d 초", (Math.round((double) l / Timer_Interval) - 1)));
@@ -260,6 +265,8 @@ public class UserCertificate extends Fragment{
 
                                 qrCode.setBackgroundResource(images[newimageId]);
                                 imageId = newimageId;
+                                //mCountDownTimer.cancel();
+                                handler.removeMessages(0);
                             }
 
                         }.start();
@@ -314,16 +321,55 @@ public class UserCertificate extends Fragment{
     public void onStop () {
         super.onStop();
 
+        Handler handler = new Handler();
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+            mCountDownTimer.cancel();
+            mCountDownTimer.onFinish();
+        }
+        mCountDownTimer.cancel();
+        mCountDownTimer.onFinish();
+
         boolean retry = true;
         backgroundThread.setRunning(false);
         while (retry) {
             try {
                 backgroundThread.join();
-                retry = false;
-            } catch (InterruptedException e) {
+               retry = false;
+           } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        handler.removeMessages(0);
+        //mCountDownTimer.cancel();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        Handler handler = new Handler();
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+            mCountDownTimer.cancel();
+            mCountDownTimer.onFinish();
+        }
+        handler.removeMessages(0);
+        //mCountDownTimer.cancel();
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+
+        Handler handler = new Handler();
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+            mCountDownTimer.cancel();
+            mCountDownTimer.onFinish();
+        }
+        handler.removeMessages(0);
+        //mCountDownTimer.cancel();
     }
 
     public class BackGroundThread extends Thread {
