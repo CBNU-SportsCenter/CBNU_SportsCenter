@@ -25,10 +25,11 @@ public class SignupActivity extends AppCompatActivity {
 
     Button btn_back,btn_signup;
     TextInputLayout StudentId, Password1, Password2,
-            Major, Name, Telephone,Email;
+            Major, Name;
     MyDatabaseHelper DB;
     Spinner Spn;
     ArrayAdapter arrayAdapter;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
@@ -71,17 +72,18 @@ public class SignupActivity extends AppCompatActivity {
                 String name=Name.getEditText().getText().toString().trim();
                 String major=Major.getEditText().getText().toString().trim();
                 String program=Spn.getSelectedItem().toString();
+                String enter="0"; //처음엔 퇴장상태
 
                 if(studentid.equals("") || password1.equals("") || password2.equals("") ||
                         name.equals("") || major.equals("") )
-                    Toast.makeText(SignupActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this, "입력을 다시 확인해주세요!", Toast.LENGTH_SHORT).show();
                 else{
                     if(password1.equals(password2)){
                         Boolean checkstudentid = DB.checkuserstudentid(studentid);
                         if(checkstudentid==false){
                            /* MyDatabaseHelper myDB=new MyDatabaseHelper(SignupActivity.this);
                             myDB.AddAccount(studentid,password1, name, major, phone, email);*/
-                        long result=DB.AddAccount(studentid,password1, name, major, program);
+                        long result=DB.addAccount(studentid,password1, name, major, program,enter);
                         if(result!=-1)
                         {
                             Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
@@ -90,10 +92,10 @@ public class SignupActivity extends AppCompatActivity {
 
                         }
                         else{
-                            Toast.makeText(SignupActivity.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupActivity.this, "이미 존재하는 회원입니다!", Toast.LENGTH_SHORT).show();
                         }
                     }else{
-                        Toast.makeText(SignupActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "비밀번호가 일치하지 않습니다!", Toast.LENGTH_SHORT).show();
                     }
                 }
 

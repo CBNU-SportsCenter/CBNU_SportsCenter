@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SportlistActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/listlogo"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/swim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text=" 수 영"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/listlogo1"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text=" 헬 스"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/listlogo3"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/squash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text=" 스 쿼 시"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+</LinearLayout>

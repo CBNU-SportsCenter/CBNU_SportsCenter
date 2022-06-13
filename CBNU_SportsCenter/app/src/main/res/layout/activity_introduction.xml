@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".IntroductionActivity">
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="196dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoView"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toIntroduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text="스포츠센터 소개"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoView2"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toFacilities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text="주요 내부 시설"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoView3"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toDirection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text="오시는 길"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+</LinearLayout>

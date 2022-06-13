@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".FacilityMenuActivity">
+
+    <LinearLayout
+        android:background="@drawable/borderbottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/logoView1"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toFloor0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text="지하 1층"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/logoView2"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toFloor1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text="지상 1층"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/logoView3"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toFloor2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text="지상 2층"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/logoView4"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toFloor3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text="지상 3층"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/logoView5"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/toFloor4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:fontFamily="@font/baemin"
+            android:text="지상 4층"
+            android:textSize="24sp" />
+    </LinearLayout>
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/directionImage"
+        android:scaleType = "fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:src="@drawable/cutewang" />
+
+</LinearLayout>
