@@ -1,5 +1,5 @@
-# CBNU_SportsCenter!!
-## 충북대학교 스포츠센터
+# Team 아이폰만세
+## 충북대학교 스포츠센터 이용조회 모바일 어플
 ## 팀원 소개
 <details markdown="1">
 <summary><strong>팀원</strong></summary>
