@@ -10,7 +10,8 @@
     * SQlite을 이용한 로그인,회원가입 페이지 구현  
     * MPAndroidChart의 BarChart를 이용한 운동시간 기록 마이페이지 구현
 * 팀원 권성민(kwonja) [Github](https://github.com/kwonja) <br>
-    *
+    * SQlite을 이용한 수영,스쿼시,헬스 이용조회 페이지 구현
+    * SQlite을 이용한 이용회원 입/퇴장 구현
 * 팀원 이인규(Evergyu) [Github](https://github.com/Evergyu) <br> 
     * Android Studio의 Fragment를 이용한 페이지 이동 구현
     * Webview를 이용한 공지사항 페이지 구현
