@@ -6,13 +6,16 @@
 <details markdown="1">
 <summary><strong>팀원</strong></summary>
 
-* 팀장 임상우(the-groot) [Github](https://github.com/the-groot)
-역할: SQlite을 이용한 로그인,회원가입페이지 구현  
-MPAndroidChart의 BarChart를 이용한 운동시간 기록 마이페이지 구현
-* 팀원 권성민(kwonja) [Github](https://github.com/kwonja)
-* 팀원 이인규(Evergyu) [Github](https://github.com/Evergyu)
-역할: 
-* 팀원 노민성(maatanyy) [Github](https://github.com/maatanyy)
+* 팀장 임상우(the-groot) [Github](https://github.com/the-groot) <br>
+역할 : >SQlite을 이용한 로그인,회원가입 페이지 구현  
+       >MPAndroidChart의 BarChart를 이용한 운동시간 기록 마이페이지 구현
+* 팀원 권성민(kwonja) [Github](https://github.com/kwonja) <br>
+역할 : >
+* 팀원 이인규(Evergyu) [Github](https://github.com/Evergyu) <br>
+역할 : >Android Studio의 Fragment를 이용한 페이지 이동 구현
+       >Webview를 이용한 공지사항 페이지 구현
+* 팀원 노민성(maatanyy) [Github](https://github.com/maatanyy) <br>
+역할 : >
 
 </details>
 
