@@ -15,7 +15,9 @@
     * Android Studio의 Fragment를 이용한 페이지 이동 구현
     * Webview를 이용한 공지사항 페이지 구현
 * 팀원 노민성(maatanyy) [Github](https://github.com/maatanyy) <br>
-    * 
+    * Android Studio를 이용한 이용증 구현
+    * ViewFlipper를 이용한 소개페이지 및 내부시설 페이지 구현
+    * Google Map을 이용한 오시는 길 페이지 구현
 
 </details>
 
