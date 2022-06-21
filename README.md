@@ -6,12 +6,12 @@
 <details markdown="1">
 <summary><strong>팀원</strong></summary>
 
-* 팀장 상어악어  
+* 팀장 상어악어(the-groot)  
 역할: SQlite을 이용한 로그인,회원가입페이지 구현  
 MPAndroidChart의 BarChart를 이용한 운동시간 기록 마이페이지 구현
-* 팀원 권자몬
-* 팀원 너구리
-* 팀원 노장군
+* 팀원 권자몬(kwonja)
+* 팀원 너구리(Evergyu)
+* 팀원 노장군(maatanyy)
 
 </details>
 
