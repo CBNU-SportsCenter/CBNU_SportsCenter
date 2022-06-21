@@ -6,18 +6,20 @@
 <details markdown="1">
 <summary><strong>팀원</strong></summary>
 
-* 팀장 상어악어(the-groot)  
+* 팀장 임상우(the-groot) [Github](https://github.com/the-groot)
 역할: SQlite을 이용한 로그인,회원가입페이지 구현  
 MPAndroidChart의 BarChart를 이용한 운동시간 기록 마이페이지 구현
-* 팀원 권자몬(kwonja)
-* 팀원 너구리(Evergyu)
-* 팀원 노장군(maatanyy)
+* 팀원 권성민(kwonja) [Github](https://github.com/kwonja)
+* 팀원 이인규(Evergyu) [Github](https://github.com/Evergyu)
+역할: 
+* 팀원 노민성(maatanyy) [Github](https://github.com/maatanyy)
 
 </details>
 
 ## :soccer: 프로젝트 이유
-2019년에 건축된 충북대학교 스포츠센터 전용 모바일 앱이 존재하지 않고, <br>
-코로나19로 인한 거리두기에 효과를 줄 수 있도록 운동 사용자 조회를 통해 이용인원이 많을때, 이용을 지양하도록 하기 위해서
+2019년에 완공한 충북대학교 스포츠센터 전용 모바일 앱이 존재하지 않았다. <br>
+그래서 효과적인 코로나19 거리두기를 위해 실시간 스포츠 센터 사용자 조회기능을 포함한 스포츠 센터 애플리케이션을 개발해 사람이 많은 시간대를 피할 수 있도록 하기 위해 개발했다.
+
 ## :blue_book: 깃허브 규칙
 <details markdown="1">
 <summary><strong>규칙!</strong></summary>
@@ -25,6 +27,26 @@ MPAndroidChart의 BarChart를 이용한 운동시간 기록 마이페이지 구�
  <h3>2. Make Issue </h3>
  <h3>3. Make branch accroding to issue number  </h3>
  <h3>4. Final Modification merge to main branch  </h3>
+</details>
+
+## :green_book: 버젼
+<details markdown="1">
+<summary><strong>버젼!</strong></summary>
+ <h3>Android Studio : Bumblebee | 2021.1.1 Patch3</h3>
+ <h3>Android Gradle Plugin Version : 2.2.3  </h3>
+ <h3>Gradle Version : 7.3</h3>
+ <h3>Java : 1.8.0_331</h3>
+ <h3>Emulator : Galaxy S10e (SM-G970N)</h3>
+ </details>
+
+
+## :closed_book: 설치 방법
+<details markdown="1">
+<summary><strong>설치 방법!</strong></summary>
+ <h3>1. Install Android Studio</h3>
+ <h3>2. Check Version [File]->[Project Structure]->[Project] </h3>
+ <h3>3. Create Emulator or Connect Android Device</h3>
+ <h3>4. Run 'app' (Shift+F10)</h3>
 </details>
 
 ## :orange_book: 개발 로직
