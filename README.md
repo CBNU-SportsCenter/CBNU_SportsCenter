@@ -26,6 +26,14 @@
 2019년에 완공한 충북대학교 스포츠센터 전용 모바일 앱이 존재하지 않았다. <br>
 그래서 효과적인 코로나19 거리두기를 위해 실시간 스포츠 센터 사용자 조회기능을 포함한 스포츠 센터 애플리케이션을 개발해 사람이 많은 시간대를 피할 수 있도록 하기 위해 개발했다.
 
+## :calendar: 개발일정
+<details markdown="1">
+<summary><strong>일정표</strong></summary>
+
+![KakaoTalk_20220621_161132420](https://user-images.githubusercontent.com/42410000/174797061-f0fc901d-7e8a-4d90-a43c-28a4b7de0841.png)
+
+</details>
+
 ## :blue_book: 깃허브 규칙
 <details markdown="1">
 <summary><strong>규칙!</strong></summary>
