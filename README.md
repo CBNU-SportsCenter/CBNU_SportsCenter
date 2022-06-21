@@ -49,7 +49,7 @@ MPAndroidChart의 BarChart를 이용한 운동시간 기록 마이페이지 구�
 ## ✅ 사이드바 & 마이페이지
 ![마이페이지1](https://user-images.githubusercontent.com/42410000/174732513-1471bdf5-641a-411b-b14b-dc01f405c83b.png)
 ## ✅ 시연영상
-<a href="https://www.youtube.com/watch?v=-RqfSlnzSe8" target="_blank">https://www.youtube.com/watch?v=-RqfSlnzSe8</a>
+<a href="https://www.youtube.com/watch?v=-RqfSlnzSe8" target='_blank'>https://www.youtube.com/watch?v=-RqfSlnzSe8</a>
 
 
 
