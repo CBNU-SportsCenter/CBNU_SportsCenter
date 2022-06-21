@@ -6,7 +6,9 @@
 <details markdown="1">
 <summary><strong>팀원</strong></summary>
 
-* 팀장 상어악어
+* 팀장 상어악어  
+역할: SQlite을 이용한 로그인,회원가입페이지 구현  
+MPAndroidChart의 BarChart를 이용한 운동시간 기록 마이페이지 구현
 * 팀원 권자몬
 * 팀원 너구리
 * 팀원 노장군
@@ -46,7 +48,8 @@
 ![공지](https://user-images.githubusercontent.com/42410000/174731967-f04fa29a-cf4c-4d00-8fa6-3cd238707a28.jpg)
 ## ✅ 사이드바 & 마이페이지
 ![마이페이지1](https://user-images.githubusercontent.com/42410000/174732513-1471bdf5-641a-411b-b14b-dc01f405c83b.png)
-
+## ✅ 시연영상
+<a href="https://www.youtube.com/watch?v=-RqfSlnzSe8">https://www.youtube.com/watch?v=-RqfSlnzSe8</a>
 
 
 
