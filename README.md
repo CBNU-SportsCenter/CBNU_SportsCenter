@@ -7,7 +7,7 @@
 <summary><strong>팀원</strong></summary>
 
 * 팀장 임상우(the-groot) [Github](https://github.com/the-groot) <br>
-    * SQlite을 이용한 로그인,회원가입 페이지 구현  
+    * SQLite을 이용한 로그인,회원가입 페이지 구현  
     * MPAndroidChart의 BarChart를 이용한 운동시간 기록 마이페이지 구현
 * 팀원 권성민(kwonja) [Github](https://github.com/kwonja) <br>
     * SQlite을 이용한 수영,스쿼시,헬스 이용조회 페이지 구현
@@ -23,7 +23,7 @@
 </details>
 
 ## :soccer: 프로젝트 이유
-2019년에 완공한 충북대학교 스포츠센터 전용 모바일 앱이 존재하지 않았다. <br>
+2021년에 완공한 충북대학교 스포츠센터 전용 모바일 앱이 존재하지 않았다. <br>
 그래서 효과적인 코로나19 거리두기를 위해 실시간 스포츠 센터 사용자 조회기능을 포함한 스포츠 센터 애플리케이션을 개발해 사람이 많은 시간대를 피할 수 있도록 하기 위해 개발했다.
 
 ## :calendar: 개발일정
